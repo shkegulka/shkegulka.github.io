@@ -13,6 +13,7 @@ weight: 2
     }
 </style>
 
+<div class="flex-shrink-0 container mt-5 markdown-body">
 # **Hello! :heart:**
 
 <div class="col-lg-3 col-md-8 mt-2">
@@ -37,6 +38,7 @@ Professionally, I gravitate towards video game journalism, marketing and communi
 :envelope_with_arrow: If you ever feel like dropping me a message, you can do so <a href="mailto:shkegulka@gmail.com">via email</a>.
 
 :globe_with_meridians: Links to my other contacts should also be somewhere at the bottom of this site. Unless I messed up the layout again.
+</div>
 
 <!-- <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
