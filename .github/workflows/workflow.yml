@@ -24,9 +24,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1.3 # can change this to 2.7 or whatever version you prefer
+          
+      - name: Install dependencies
+        run: bundle install
 
       - name: 🔨 install dependencies & build site
-        run: bundle install
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
