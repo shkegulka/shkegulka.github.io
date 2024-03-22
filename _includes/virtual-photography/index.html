@@ -1,7 +1,16 @@
+<style>
+	.vp {
+		max-width: 60%;
+		margin: auto;
+	}
+</style>
+
+<div class="vp">
 <div class="card-group mt-2">
 
   {% for post in site.posts %}
     {% include virtual-photography/post-card.html %}
   {% endfor %}
   
+</div>
 </div>

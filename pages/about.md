@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 weight: 2
@@ -11,12 +11,12 @@ weight: 2
 	  width: 40%;
 	  margin-left: 1em;
     }
+
 </style>
 
-<div class="flex-shrink-0 container mt-5 markdown-body">
 # **Hello! :heart:**
 
-<div class="col-lg-3 col-md-8 mt-2">
+<div class="col-lg-3 col-md-8 mt-2" id="about">
     <div id="container" class="my-2">
       <div id="dummy"></div>
       <div id="element">

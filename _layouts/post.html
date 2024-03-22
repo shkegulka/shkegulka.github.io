@@ -16,6 +16,11 @@ layout: page
     .image-gallery a span {display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; padding: 3px 0;}
     .image-gallery a img {width: 100%; display: block;}
 
+	.vp {
+		max-width: 60%;
+		margin: auto;
+	}
+
     .banner {
     background-image: url('{{ banner-pic.image1080-link }}');
     background-size: cover;
@@ -40,6 +45,7 @@ layout: page
     }
 </style>
 
+<div class="vp">
 <div class="banner">
     <div class="banner-text">
         <h1><strong>{{ page.title }}</strong></h1>
@@ -49,6 +55,7 @@ layout: page
 
 <div class="pig-wrapper">
     <div id="pig"></div>
+</div>
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
