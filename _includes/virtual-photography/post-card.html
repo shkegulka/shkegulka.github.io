@@ -24,8 +24,14 @@
 {%- else -%}
   {%- assign post_url = post.url | relative_url -%}
 {%- endif -%}
+
+<style>
+	.card-title {
+		  
+	}
+</style>
     
-<div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ post_url }}" class="project card text-themed" {%- if post.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>
   <img loading="lazy" src="{{ site.data.virtual-photography[post.slug][post.card-image].image1080-link }}" alt="{{ include.album.title }}" class="card-img-top" style="object-position: 0 {{post.card-offset}}%;">
     <div class="card-body {{ text_style }}">
