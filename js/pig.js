@@ -83,6 +83,7 @@
     var css = (
       '#' + containerId + ' {' +
       '  position: relative;' +
+	  '  overflow: hidden;' + /** Added line as a temporary workaround for gallery alignment */
       '}' +
       '.' + classPrefix + '-figure {' +
       '  background-color: #17191A;' +
@@ -318,7 +319,7 @@
       getMinAspectRatio: function(lastWindowWidth) {
         // Narrow windows get an image after the other without grid, so the images can be seen better on phones.
         if (window.innerWidth / window.innerHeight  <= 0.5){
-          return 0.1;
+          return 1;
         }
         
         //Desktop
