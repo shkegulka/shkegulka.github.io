@@ -8,8 +8,23 @@
 {%- endfor -%}
 {%- assign tags = tags | split:'|' | uniq | sort -%}
 
+<style>
+	.vp {
+		max-width: 60%;
+		margin: auto;
+	}
+	
+	@media (max-width: 1280px) {
+	.vp {
+		max-width: 100%;
+		margin: auto;
+	}
+	}
+</style>
+
 <!-- List tags & related posts -->
 {% for tag in tags %}
+<div class="vp">
 <div class="py-3">
   <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
   <ol>
@@ -28,4 +43,5 @@
   </ol>
 </div>
 <hr class="bg-light">
+</div>
 {% endfor %}
