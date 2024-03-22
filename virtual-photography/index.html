@@ -78,7 +78,7 @@
 </nav>
   </div>
     <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
-
+<div class="vp">
 <div class="input-group mt-5 px-3">
   <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts..">
   <div class="input-group-append">
@@ -89,6 +89,7 @@
   <button class="btn btn-outline-primary ml-1" onclick="location.href = '/blog/tags';">
     <i class="fas fa-tags"></i>
   </button>
+</div>
 </div>
 <ul class="px-3" id="results-container"></ul>
 
@@ -102,6 +103,14 @@
         json: '/search.json'
       })
 </script>
+<style>
+	.vp {
+		max-width: 60%;
+		margin: auto;
+	}
+</style>
+
+<div class="vp">
 <div class="card-group mt-2">
 
   
@@ -293,6 +302,7 @@
 </div>
   
   
+</div>
 </div>
   </main>
   <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
