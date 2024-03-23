@@ -24,7 +24,7 @@
 }
 
 .text-themed {
-  @include themed(color, $text-black, $text-white);
+  @include themed(color, $text-white, $text-white);
 }
 
 .bg-themed {

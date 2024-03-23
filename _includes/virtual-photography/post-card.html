@@ -26,29 +26,63 @@
 {%- endif -%}
 
 <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ post_url }}" class="project card text-themed" {%- if post.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>
   <img loading="lazy" src="{{ site.data.virtual-photography[post.slug][post.card-image].image1080-link }}" alt="{{ include.album.title }}" class="card-img-top" style="object-position: 0 {{post.card-offset}}%;">
-    <div class="card-body {{ text_style }}">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>{{ post.title }}</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         {% for tag in post.tags %}
         <span class="badge {{ badge_style }}">{{ tag }}</span>
         {% endfor %}
       </p>
-      <p class="card-text">
+      <!-- <p class="card-text">
         {%- if post.description -%}
         {{ post.description }}
         {%- else -%}
         {{ post.content | truncatewords: 25, "<small><i>  read more...</i></small>" }}
         {%- endif -%}
-      </p>
+      </p> -->
+	  <p class="card-text">
       {{ post.date | date_to_long_string }}
+	  </p>
     </div>
   </a>
 </div>

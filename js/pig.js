@@ -101,10 +101,10 @@
       '  opacity: 0;' +
       '  transition: ' + (transitionSpeed / 1000) + 's ease opacity;' +
       '  -webkit-transition: ' + (transitionSpeed / 1000) + 's ease opacity;' +
-      '  transition: transform .4s ease;' +
+      '  transition: transform .5s ease;' +
       '}' +
       '.' + classPrefix + '-figure img:hover {' +
-      '  transform: scale(1.10);' +
+      '  transform: scale(1.02);' +
       '}' +
       '.' + classPrefix + '-figure img.' + classPrefix + '-thumbnail {' +
       '  -webkit-filter: blur(30px);' +

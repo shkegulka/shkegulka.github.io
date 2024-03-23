@@ -5,7 +5,7 @@
   background-color: rgba(0, 0, 0, 0.03);
 
   .card-img-top {
-    border-radius: $rounded-borders $rounded-borders 0 0;
+    border-radius: $rounded-borders $rounded-borders $rounded-borders $rounded-borders;
 	object-fit: cover;
     width: 100%;
     height: 550px;
