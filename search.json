@@ -41,11 +41,35 @@
     } ,
   
     {
+      "title"    : "Starfield",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/starfield",
+      "date"     : "2023-10-25 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Returnal",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/returnal",
+      "date"     : "2023-10-25 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Resident Evil 3",
       "category" : "",
       "tags"     : "Action",
       "url"      : "/virtual-photography/resident-evil-3",
       "date"     : "2023-10-12 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Total War: WARHAMMER III",
+      "category" : "",
+      "tags"     : "Strategy",
+      "url"      : "/virtual-photography/total-war-warhammer-3",
+      "date"     : "2023-04-07 00:00:00 +0000"
     } ,
   
     {
@@ -86,6 +110,14 @@
       "tags"     : "Racing",
       "url"      : "/virtual-photography/nfs-heat",
       "date"     : "2021-10-03 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Mass Effect: Ledengary Edition",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/mass-effect-le",
+      "date"     : "2021-08-19 00:00:00 +0000"
     } 
   
 ]

@@ -77,16 +77,17 @@
 
 </nav>
   </div>
+  <div class="content-wrapper">
     <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
 <div class="vp">
 <div class="input-group mt-5 px-3">
-  <input id="search-input" type="text" class="form-control search-box" placeholder="Search albums..">
+  <input id="search-input" type="text" class="form-control search-box" placeholder="Search albums...">
   <div class="input-group-append">
-    <span class="input-group-text border border-primary bg-primary text-white">
+    <span class="input-group-text border border-secondary bg-secondary text-white">
       <i class="fas fa-search"></i>
     </span>
   </div>
-  <button class="btn btn-outline-primary ml-1" onclick="location.href = '/virtual-photography/tags';">
+  <button class="btn btn-outline-secondary ml-1" onclick="location.href = '/virtual-photography/tags';">
     <i class="fas fa-tags"></i>
   </button>
 </div>
@@ -122,254 +123,856 @@
 
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/indika" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/SeegBMC.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>INDIKA</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Adventure</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       09 March 2024
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/brothers-in-arms-rth30" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/WQrT9Rs.jpeg" alt="" class="card-img-top" style="object-position: 0 10%;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Brothers in Arms: Road to Hill 30</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       10 January 2024
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/brothers-in-arms-eib" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/3SEk13I.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Brothers in Arms: Earned in Blood</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       10 January 2024
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/tekken-8" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/6rW0I41.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>TEKKEN 8</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Fighting</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       03 January 2024
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/ghostrunner-2" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/H5LHGwI.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Ghostrunner 2</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       13 November 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/starfield" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/nQXQiVl.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Starfield</strong></h3>
+
+      <p class="card-title">
+        
+        <span class="badge badge-dark">RPG</span>
+        
+      </p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      25 October 2023
+	  </p>
+    </div>
+  </a>
+</div>
+  
+    <style>
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+</style>
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/returnal" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/Csp71YX.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Returnal</strong></h3>
+
+      <p class="card-title">
+        
+        <span class="badge badge-dark">Action</span>
+        
+      </p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      25 October 2023
+	  </p>
+    </div>
+  </a>
+</div>
+  
+    <style>
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+</style>
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/resident-evil-3" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/Vgz7M9M.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Resident Evil 3</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       12 October 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/total-war-rome-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/8eOJyx5.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
-      <h3 class="card-title"><strong>Total War: ROME II</strong></h3>
-      <p class="card-text">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/total-war-warhammer-3" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/GtJQvSo.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Total War: WARHAMMER III</strong></h3>
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Strategy</span>
         
       </p>
-      <p class="card-text">
-</p>
-      18 March 2023
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      07 April 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/total-war-rome-2" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/8eOJyx5.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Total War: ROME II</strong></h3>
+
+      <p class="card-title">
+        
+        <span class="badge badge-dark">Strategy</span>
+        
+      </p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      18 March 2023
+	  </p>
+    </div>
+  </a>
+</div>
+  
+    <style>
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+</style>
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/dead-space" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/SvrmQjI.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Dead Space</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       10 February 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/nfs-unbound" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/0WyD4hc.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Need for Speed Unbound</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Racing</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       30 January 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/guardians-of-the-galaxy" class="project card text-themed">
   <img loading="lazy" src="https://i.imgur.com/U3yDHmy.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Marvel's Guardians of the Galaxy</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       19 January 2023
+	  </p>
     </div>
   </a>
 </div>
   
     <style>
-	.card-title {
-		  
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 	}
 </style>
     
-<div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="/virtual-photography/nfs-heat" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/tWN8Wku.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
-    <div class="card-body text-themed">
+  <img loading="lazy" src="https://i.imgur.com/CxgOFux.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
       <h3 class="card-title"><strong>Need for Speed Heat</strong></h3>
-      <p class="card-text">
+
+      <p class="card-title">
         
         <span class="badge badge-dark">Racing</span>
         
       </p>
-      <p class="card-text">
-</p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
       03 October 2021
+	  </p>
+    </div>
+  </a>
+</div>
+  
+    <style>
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+</style>
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/mass-effect-le" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/XVO9z2e.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Mass Effect: Ledengary Edition</strong></h3>
+
+      <p class="card-title">
+        
+        <span class="badge badge-dark">RPG</span>
+        
+      </p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      19 August 2021
+	  </p>
     </div>
   </a>
 </div>
@@ -377,6 +980,7 @@
   
 </div>
 </div>
+  </div>
   </main>
   <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
     Made with <i class="fas fa-heart"></i><br>
