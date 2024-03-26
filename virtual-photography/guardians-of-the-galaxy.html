@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script src="../js/jquery.swipebox.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
+  <script src="../js/jquery.swipebox.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
 
 </head>
 
@@ -140,7 +140,7 @@
 		</div>
 	</div>
 
-	<div class="pig-wrapper">
+	<div class="pig-wrapper wow animated fadeIn" data-wow-delay=".15s">
 		<div id="pig"></div>
 	</div>
 </div>
@@ -216,6 +216,14 @@
     
         {"thumbnail":"https://i.imgur.com/ot7Rugu.jpeg", "image1080":"https://i.imgur.com/Qb2NSuI.jpeg", "imageFull":"https://i.imgur.com/KfSTgfY.jpeg", "aspectRatio":0.8},
     
+        {"thumbnail":"https://i.imgur.com/I2OwCbY.jpeg", "image1080":"https://i.imgur.com/qb8WQn1.jpeg", "imageFull":"https://i.imgur.com/qFh5Usd.jpeg", "aspectRatio":0.8},
+    
+        {"thumbnail":"https://i.imgur.com/Vd8TYbh.jpeg", "image1080":"https://i.imgur.com/Kg3FB7h.jpeg", "imageFull":"https://i.imgur.com/r9c9HLX.jpeg", "aspectRatio":1.7777777777777777},
+    
+        {"thumbnail":"https://i.imgur.com/xvxRwdX.jpeg", "image1080":"https://i.imgur.com/ro8Uldq.jpeg", "imageFull":"https://i.imgur.com/R1PmhKY.jpeg", "aspectRatio":0.8},
+    
+        {"thumbnail":"https://i.imgur.com/HDE1ZKQ.jpeg", "image1080":"https://i.imgur.com/DTx19Qo.jpeg", "imageFull":"https://i.imgur.com/VpgLQh2.jpeg", "aspectRatio":0.8},
+    
     ];
     var pig = new Pig(imageData, {
     urlForSize: function(imageUrls, sizewidth) {
@@ -239,11 +247,15 @@
   </div>
   </main>
   <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i><br>
-    <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
+    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
   </small>
 
-  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:shkegulka@gmail.com"
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a><a class="social mx-1"  href="mailto:shkegulka@gmail.com"
        style="color: #6c757d"
        onMouseOver="this.style.color='#db4437'"
        onMouseOut="this.style.color='#6c757d'">
@@ -253,11 +265,6 @@
        onMouseOver="this.style.color='#333333'"
        onMouseOut="this.style.color='#6c757d'">
       <i class="fab fa-github fa-1x"></i>
-    </a><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#1da1f2'"
-       onMouseOut="this.style.color='#6c757d'">
-      <i class="fab fa-twitter fa-1x"></i>
     </a>
 
 </div>

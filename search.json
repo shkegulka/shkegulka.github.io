@@ -9,6 +9,14 @@
     } ,
   
     {
+      "title"    : "Lords of the Fallen",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/lords-of-the-fallen",
+      "date"     : "2024-02-17 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Brothers in Arms: Road to Hill 30",
       "category" : "",
       "tags"     : "Action",
@@ -30,6 +38,14 @@
       "tags"     : "Fighting",
       "url"      : "/virtual-photography/tekken-8",
       "date"     : "2024-01-03 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Alan Wake 2",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/alan-wake-2",
+      "date"     : "2023-12-03 00:00:00 +0000"
     } ,
   
     {
@@ -57,11 +73,35 @@
     } ,
   
     {
+      "title"    : "Hi-Fi RUSH",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/hi-fi-rush",
+      "date"     : "2023-10-25 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Resident Evil 3",
       "category" : "",
       "tags"     : "Action",
       "url"      : "/virtual-photography/resident-evil-3",
       "date"     : "2023-10-12 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Star Wars Jedi: Survivor",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/sw-jedi-survivor",
+      "date"     : "2023-04-09 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Assetto Corsa",
+      "category" : "",
+      "tags"     : "Racing",
+      "url"      : "/virtual-photography/assetto-corsa",
+      "date"     : "2023-04-09 00:00:00 +0000"
     } ,
   
     {
@@ -97,11 +137,27 @@
     } ,
   
     {
+      "title"    : "Ready or Not",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/ready-or-not",
+      "date"     : "2023-01-26 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Marvel&#39;s Guardians of the Galaxy",
       "category" : "",
       "tags"     : "Action",
       "url"      : "/virtual-photography/guardians-of-the-galaxy",
       "date"     : "2023-01-19 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Darksiders III",
+      "category" : "",
+      "tags"     : "Action",
+      "url"      : "/virtual-photography/darksiders-3",
+      "date"     : "2022-09-08 00:00:00 +0000"
     } ,
   
     {
