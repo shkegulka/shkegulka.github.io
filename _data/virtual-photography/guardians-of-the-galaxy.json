@@ -236,5 +236,33 @@
         "thumbnail-link": "https://i.imgur.com/ot7Rugu.jpeg",
         "image1080-link": "https://i.imgur.com/Qb2NSuI.jpeg",
         "aspect-ratio": "0.8"
+    },
+    {
+        "file_name": "52625063149.jpg",
+        "imageFull-link": "https://i.imgur.com/qFh5Usd.jpeg",
+        "thumbnail-link": "https://i.imgur.com/I2OwCbY.jpeg",
+        "image1080-link": "https://i.imgur.com/qb8WQn1.jpeg",
+        "aspect-ratio": "0.8"
+    },
+    {
+        "file_name": "52625063624.jpg",
+        "imageFull-link": "https://i.imgur.com/r9c9HLX.jpeg",
+        "thumbnail-link": "https://i.imgur.com/Vd8TYbh.jpeg",
+        "image1080-link": "https://i.imgur.com/Kg3FB7h.jpeg",
+        "aspect-ratio": "1.7777777777777777"
+    },
+    {
+        "file_name": "52625063674.jpg",
+        "imageFull-link": "https://i.imgur.com/R1PmhKY.jpeg",
+        "thumbnail-link": "https://i.imgur.com/xvxRwdX.jpeg",
+        "image1080-link": "https://i.imgur.com/ro8Uldq.jpeg",
+        "aspect-ratio": "0.8"
+    },
+    {
+        "file_name": "52625244525.jpg",
+        "imageFull-link": "https://i.imgur.com/VpgLQh2.jpeg",
+        "thumbnail-link": "https://i.imgur.com/HDE1ZKQ.jpeg",
+        "image1080-link": "https://i.imgur.com/DTx19Qo.jpeg",
+        "aspect-ratio": "0.8"
     }
 ]
