@@ -1,6 +1,22 @@
 [
   
     {
+      "title"    : "Elden Ring",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/elden-ring",
+      "date"     : "2024-07-16 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Kingdom Come: Deliverance",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/kingdom-come-deliverance",
+      "date"     : "2024-07-02 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Senua&#39;s Saga: Hellblade II",
       "category" : "",
       "tags"     : "Adventure",
@@ -14,6 +30,14 @@
       "tags"     : "Adventure",
       "url"      : "/virtual-photography/indika",
       "date"     : "2024-05-28 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Dragon&#39;s Dogma 2",
+      "category" : "",
+      "tags"     : "RPG",
+      "url"      : "/virtual-photography/dragons-dogma-2",
+      "date"     : "2024-04-18 00:00:00 +0000"
     } ,
   
     {
