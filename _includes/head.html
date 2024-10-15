@@ -40,5 +40,24 @@
   <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="../js/jquery.swipebox.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
+  
+	<!-- Twitter cards -->
+	<meta name="twitter:site"    content="@{{ site.twitter }}">
+	<meta name="twitter:title"   content="{{ page.title }}">
+
+	{% if page.url == "/virtual-photography/" %}
+	<meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
+	{% else %}
+	<meta name="twitter:description" content="{{ page.description }}">
+	{% endif %}
+
+	{% if page.url == "/virtual-photography/" %}
+	<meta name="twitter:card"  content="summary_large_image">
+	<meta name="twitter:image" content="{{ site.url }}{{ page.banner-image }}">
+	{% else %}
+	<meta name="twitter:card"  content="summary">
+	<meta name="twitter:image" content="{{ site.author.image }}">
+	{% endif %}
+	<!-- end of Twitter cards -->
 
 </head>
