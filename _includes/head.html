@@ -20,22 +20,22 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
-  <meta property="og:image" content="{{ image }}">
-
-  <title>{{ title }}</title>
+  <meta property="og:description" content="{% if page.url contains "/virtual-photography/" %}Screenshot album from {{ page.title }} made by {{ page.developer }}{% else %}{{ description }}{% endif %}">
+  <meta property="og:image" content="{% if page.url contains "/virtual-photography/" %}{{ social-media-card-image }}{% else %}{{ image }}{% endif %}">
+  
+  <title>{% if page.url contains "/virtual-photography/" %}{{ title }} | {{ site.title }}{% else %}{{ title }}{% endif %}</title>
   <meta name="description" content="{{ page.description }}">
 
   <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="{{ page.title }}">
+  <meta name="twitter:title"   content="{{ page.title }} – {{ site.data.general_settings.title }}">
   <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
   <meta name="twitter:image" content="{{ social-media-card-image }}">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:title" content="{{ page.title }} – {{ site.data.general_settings.title }}">
   <meta property="og:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
   <meta property="og:image" content="{{ social-media-card-image }}">
 
