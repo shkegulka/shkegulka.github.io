@@ -20,8 +20,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{% if page.url contains "/virtual-photography/" %}Screenshot album from {{ page.title }} made by {{ page.developer }}{% else %}{{ description }}{% endif %}">
-  <meta property="og:image" content="{% if page.url contains "/virtual-photography/" %}{{ social-media-card-image }}{% else %}{{ image }}{% endif %}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ image }}">
   
   <title>{% if page.url contains "/virtual-photography/" %}{{ title }} | {{ site.title }}{% else %}{{ title }}{% endif %}</title>
   <meta name="description" content="{{ page.description }}">
