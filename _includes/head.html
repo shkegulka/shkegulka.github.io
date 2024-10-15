@@ -1,6 +1,5 @@
 <head>
 
-<!--
   {% assign title = page.title | default: site.title | escape %}
   {% assign description = page.description | default: site.description | strip_html | strip_newlines | truncate: 160 %}
   {% assign image = page.image | default: site.author.image %}
@@ -8,7 +7,6 @@
   {% if page.name and page.collection == 'projects' %}
     {% assign title = page.name | escape %}
   {% endif %}
--->
   
   {% if page.url contains "/virtual-photography/" %}
     {% assign social-media-card-image = site.data.virtual-photography[page.slug][page.banner-image].thumbnail-link %}
@@ -35,6 +33,11 @@
   <meta name="twitter:title"   content="{{ page.title }}">
   <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
   <meta name="twitter:image" content="{{ social-media-card-image }}">
+  
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
+  <meta property="og:image" content="{{ social-media-card-image }}">
 
   <!-- Theme style -->
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
