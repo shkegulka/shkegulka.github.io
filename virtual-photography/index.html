@@ -48,6 +48,20 @@
   <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="../js/jquery.swipebox.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
+  
+	<!-- Twitter cards -->
+	<meta name="twitter:site"    content="@">
+	<meta name="twitter:title"   content="Virtual Photography">
+
+	
+	<meta name="twitter:description" content="Screenshot album from Virtual Photography made by ">
+	
+
+	
+	<meta name="twitter:card"  content="summary_large_image">
+	<meta name="twitter:image" content="https://github.com">
+	
+	<!-- end of Twitter cards -->
 
 </head>
 
@@ -129,6 +143,64 @@
 <div class="vp">
 <div class="card-group mt-2">
 
+  
+    <style>
+<!-- Title shadow if needed at some point
+	.card-img-overlay {
+		text-shadow: 0.1em 0.1em 0.3em black;
+		
+	} -->
+	
+	.card:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30%;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+	}
+	
+	.card:hover:before {
+		content: "";
+		position: absolute;
+		border-radius: 15px 15px 0px 0px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background: linear-gradient(to bottom, rgba(218,88,122,0.1), rgba(218,88,122,0));
+		transition: all 0.3s ease;
+	}
+	
+	.card-info {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+</style>
+    
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/virtual-photography/syberia-twb" class="project card text-themed">
+  <img loading="lazy" src="https://i.imgur.com/ShqYZuK.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><strong>Syberia: The World Before</strong></h3>
+
+      <p class="card-title">
+        
+        <span class="badge badge-dark">Adventure</span>
+        
+      </p>
+      <!-- <p class="card-text">
+</p> -->
+	  <p class="card-text">
+      06 October 2024
+	  </p>
+    </div>
+  </a>
+</div>
   
     <style>
 <!-- Title shadow if needed at some point
