@@ -1,5 +1,6 @@
 <head>
 
+/*
   {% assign title = page.title | default: site.title | escape %}
   {% assign description = page.description | default: site.description | strip_html | strip_newlines | truncate: 160 %}
   {% assign image = page.image | default: site.author.image %}
@@ -7,9 +8,12 @@
   {% if page.name and page.collection == 'projects' %}
     {% assign title = page.name | escape %}
   {% endif %}
+*/
   
   {% if page.url contains "/virtual-photography/" %}
     {% assign social-media-card-image = site.data.virtual-photography[page.slug][page.banner-image].thumbnail-link %}
+  {% else %}
+	{% assign social-media-card-image = site.author.image %}
   {% endif %}
 
   <meta charset="utf-8">
@@ -22,18 +26,15 @@
   <meta property="og:image" content="{{ image }}">
 
   <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
+  <meta name="description" content="{{ page.description }}">
 
   <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
   
   <!-- Twitter cards -->
-  {% if page.url contains "/virtual-photography/" %}
   <meta name="twitter:card"  content="summary_large_image">
   <meta name="twitter:title"   content="{{ page.title }}">
   <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
   <meta name="twitter:image" content="{{ social-media-card-image }}">
-  {% endif %}
-  <!-- end of Twitter cards -->
 
   <!-- Theme style -->
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
