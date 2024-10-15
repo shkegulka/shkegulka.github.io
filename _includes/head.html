@@ -1,14 +1,16 @@
 <head>
 
   {% assign title = page.title | default: site.title | escape %}
-  {% assign description = "Screenshot album from {{ page.title }} made by {{ page.developer }}" | default: site.description | strip_html | strip_newlines | truncate: 160 %}
-  {% assign image = page.banner-image | default: site.author.image %}
+  {% assign description = page.description | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  {% assign image = page.image | default: site.author.image %}
 
   {% if page.name and page.collection == 'projects' %}
     {% assign title = page.name | escape %}
   {% endif %}
   
-  {% assign social-media-card-image = site.data.general_settings.social_media_share_image | absolute_url %}
+  {% if page.url contains "/virtual-photography/" %}
+    {% assign social-media-card-image = site.data.virtual-photography[page.slug][page.banner-image].thumbnail-link %}
+  {% else %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
