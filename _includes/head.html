@@ -10,7 +10,7 @@
   
   {% if page.url contains "/virtual-photography/" %}
     {% assign social-media-card-image = site.data.virtual-photography[page.slug][page.banner-image].thumbnail-link %}
-  {% else %}
+  {% endif %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,15 @@
   <meta name="description" content="{{ description }}">
 
   <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+  
+  <!-- Twitter cards -->
+  {% if page.url contains "/virtual-photography/" %}
+  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:title"   content="{{ page.title }}">
+  <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
+  <meta name="twitter:image" content="{{ social-media-card-image }}">
+  {% endif %}
+  <!-- end of Twitter cards -->
 
   <!-- Theme style -->
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
@@ -44,13 +53,5 @@
   <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="../js/jquery.swipebox.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-  
-  <!-- Twitter cards -->
-  <meta name="twitter:site"    content="@{{ site.twitter }}">
-  <meta name="twitter:title"   content="{{ page.title }}">
-  <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
-  <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:image" content="{{ social-media-card-image }}">
-  <!-- end of Twitter cards -->
 
 </head>
