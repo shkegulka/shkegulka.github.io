@@ -1,12 +1,14 @@
 <head>
 
   {% assign title = page.title | default: site.title | escape %}
-  {% assign description = page.description | default: site.description | strip_html | strip_newlines | truncate: 160 %}
-  {% assign image = page.image | default: site.author.image %}
+  {% assign description = "Screenshot album from {{ page.title }} made by {{ page.developer }}" | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  {% assign image = page.banner-image | default: site.author.image %}
 
   {% if page.name and page.collection == 'projects' %}
     {% assign title = page.name | escape %}
   {% endif %}
+  
+  {% assign social-media-card-image = site.data.general_settings.social_media_share_image | absolute_url %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,23 +43,12 @@
   <script src="../js/jquery.swipebox.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
   
-	<!-- Twitter cards -->
-	<meta name="twitter:site"    content="@{{ site.twitter }}">
-	<meta name="twitter:title"   content="{{ page.title }}">
-
-	{% if page.url == "/virtual-photography/" %}
-	<meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
-	{% else %}
-	<meta name="twitter:description" content="{{ page.description }}">
-	{% endif %}
-
-	{% if page.url == "/virtual-photography/" %}
-	<meta name="twitter:card"  content="summary_large_image">
-	<meta name="twitter:image" content="{{ site.url }}{{ page.banner-image }}">
-	{% else %}
-	<meta name="twitter:card"  content="summary">
-	<meta name="twitter:image" content="{{ site.author.image }}">
-	{% endif %}
-	<!-- end of Twitter cards -->
+  <!-- Twitter cards -->
+  <meta name="twitter:site"    content="@{{ site.twitter }}">
+  <meta name="twitter:title"   content="{{ page.title }}">
+  <meta name="twitter:description" content="Screenshot album from {{ page.title }} made by {{ page.developer }}">
+  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:image" content="{{ social-media-card-image }}">
+  <!-- end of Twitter cards -->
 
 </head>
