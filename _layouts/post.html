@@ -18,7 +18,7 @@ layout: page
     .image-gallery a img {width: 100%; display: block;}
 
 	.vp {
-		max-width: 60%;
+		max-width: 69%;
 		margin: auto;
 	}
 
@@ -27,7 +27,7 @@ layout: page
         position: relative;
     }
     .pig-figure {
-        background-color: #202029;
+        background-color: transparent;
         position: absolute;
         top: 0;
         left: 0;
@@ -83,7 +83,7 @@ layout: page
 	
 	@media (max-width: 1280px) {
 	.vp {
-		max-width: 100%;
+		max-width: 95%;
 		margin: auto;
 	}
 	}
@@ -93,7 +93,7 @@ layout: page
 	{% assign banner_offset = page.banner-offset | default: 0 | plus: 0 %}
 	{% assign banner_offset_x = page.banner-offset-x | default: 50 | plus: 0 %}
 	{% assign banner_zoom = page.banner-zoom | default: 100 | plus: 0 %}
-	{% assign banner_container_ar = 5.06 %}
+	{% assign banner_container_ar = 5.819 %}
 	{% if ar > banner_container_ar %}
 		{% assign banner_bg_size = "auto " | append: banner_zoom | append: "%" %}
 	{% else %}

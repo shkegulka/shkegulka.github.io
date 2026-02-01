@@ -304,7 +304,7 @@
         
         .card-preview-main {
             width: 105px;
-            height: 120px;
+            aspect-ratio: 480 / 550;
             background-size: cover;
             background-position: center;
             border-radius: 8px;
@@ -314,7 +314,7 @@
         
         .card-preview-banner {
             width: 200px;
-            aspect-ratio: 1518 / 300;
+            aspect-ratio: 1745.7 / 300;
             background-size: cover;
             background-position: center;
             border-radius: 8px;
@@ -335,7 +335,7 @@
         
         .banner-preview {
             width: 100%;
-            aspect-ratio: 1518 / 300;
+            aspect-ratio: 1745.7 / 300;
             background-size: cover;
             background-position: center;
             border-radius: 8px;
@@ -500,7 +500,6 @@
                             <div class="preview-label">Card Preview (Image #<span id="cardImageNum"><%= album.cardImage %></span>)</div>
                             <div class="preview-container">
                                 <div>
-                                    <div class="preview-type-label">Card (480x550)</div>
                                     <div class="card-preview-main" id="cardPreviewMain">
                                         <% 
                                             const cardImg = album.images[album.cardImage];
@@ -855,9 +854,9 @@
             const bg = document.getElementById('cardPreviewMainBg');
             
             const img = images[cardImage];
-            if (img) {
+            if (img && zoom > 1) {
                 const containerAR = 480 / 550;
-                const imageAR = img.aspectRatio;
+                const imageAR = (img.width && img.height) ? (img.width / img.height) : (img.aspectRatio || 1);
                 
                 if (imageAR > containerAR) {
                     // Image is wider than container, height is the limiting dimension
@@ -872,6 +871,7 @@
 
             // 100 - y to match the site's logic where 0 is bottom
             bg.style.backgroundPosition = `${x}% ${100 - y}%`;
+            bg.style.backgroundRepeat = 'no-repeat';
         }
         
         document.getElementById('cardOffset').addEventListener('input', updateCardPosition);
@@ -887,7 +887,7 @@
             
             const img = images[bannerImage];
             if (img) {
-                const containerAR = 1518 / 300;
+                const containerAR = 1745.7 / 300;
                 const imageAR = img.aspectRatio;
                 
                 if (imageAR > containerAR) {
