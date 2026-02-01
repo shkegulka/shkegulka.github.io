@@ -1,11 +1,11 @@
 ---
 layout: post
-date: 2026-02-01
+date: 2026-01-31
 title: "Black Myth: Wukong"
 description: Virtual Photography
-developer: "I can't remember"
+developer: "Game Science"
 categories: [virtual-photography]
-tags: []
+tags: [test]
 slug: black-myth-wukong
 card-image: 1
 card-offset: 100
