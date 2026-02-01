@@ -3,12 +3,13 @@ layout: page
 ---
 
 {% if page.banner-image %}
-    {% assign banner-pic = site.data.virtual-photography[page.slug][page.banner-image] %}
+    {% assign banner_pic = site.data.virtual-photography[page.slug][page.banner-image] %}
 {% else %}
-    {% assign banner-pic = site.data.virtual-photography[page.slug][page.card-image] %}
+    {% assign banner_pic = site.data.virtual-photography[page.slug][page.card-image] %}
 {% endif %}
 
-{% assign ar = banner-pic.aspect-ratio | plus: 0 %}
+{% assign banner_url = banner_pic.url | default: banner_pic.image1080-link %}
+{% assign ar = banner_pic.aspectRatio | default: banner_pic.aspect-ratio | plus: 0 %}
 
 <style>
     .image-gallery {overflow: auto; margin-left: -1%!important;}
@@ -21,10 +22,25 @@ layout: page
 		margin: auto;
 	}
 
+    .pig-wrapper {
+        width: 100%;
+        position: relative;
+    }
+    .pig-figure {
+        background-color: #202029;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+    .pig-figure img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
     .banner {
-    background-image: url('{{ banner-pic.image1080-link }}');
     background-size: cover;
-    background-position: right 0px bottom {{page.banner-offset}}%;
     height: 300px;
     display: flex;
     align-items: center;
@@ -60,7 +76,9 @@ layout: page
 </style>
 
 <div class="vp">
-	<div class="banner">
+	{% assign banner_offset = page.banner-offset | default: 0 | plus: 0 %}
+	{% assign banner_offset_x = page.banner-offset-x | default: 50 | plus: 0 %}
+	<div class="banner" style="background-image: url('{{ banner_url }}'); background-position: {{ banner_offset_x }}% {{ 100 | minus: banner_offset }}%; background-size: cover; background-repeat: no-repeat;">
 		<div class="banner-text">
 			<h1><strong>{{ page.title }}</strong></h1>
 			<p><span class="date"><time datetime="{{ page.date | date_to_xmlschema }}"><strong>{{ page.date | date_to_string}}</strong></time><strong>{% if page.developer %} | {{page.developer}} {% endif %}</strong></span> </p>
@@ -73,26 +91,46 @@ layout: page
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
-    var imageData = [
+    {% capture images_json %}
+    [
     {% for image in site.data.virtual-photography[page.slug] %}
-        {"thumbnail":"{{ image.thumbnail-link }}", "image1080":"{{ image.image1080-link }}", "imageFull":"{{ image.imageFull-link }}", "aspectRatio":{{ image.aspect-ratio }}},
+        {
+            "thumb": {{ image.thumb | default: image.thumbnail-link | jsonify }},
+            "url": {{ image.url | default: image.imageFull-link | jsonify }},
+            "aspectRatio": {{ image.aspectRatio | default: image.aspect-ratio | default: 1.5 | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
     {% endfor %}
-    ];
+    ]
+    {% endcapture %}
+    var imageData = JSON.parse('{{ images_json | strip_newlines | replace: "'", "\\'" }}');
     var pig = new Pig(imageData, {
-    urlForSize: function(imageUrls, sizewidth) {
-    if (sizewidth <= 1080){
-        return imageUrls.thumbnail;
-    }
-    else if(sizewidth <= 1920){
-        return imageUrls.image1080;
-    }
-    return imageUrls.imageFull;
-    },
     addAnchorTag: true,
-    anchorTargetDir: "",
-    anchorClass: "swipebox"
+    anchorClass: "vp-photo-link"
     }).enable();
-    ;( function( $ ) {
-    $( '.swipebox' ).swipebox();
-    } )( jQuery );
+
+    // Fancybox initialization
+    setTimeout(function() {
+        var links = document.querySelectorAll('.vp-photo-link');
+        links.forEach(function(link) {
+            link.setAttribute('data-fancybox', 'gallery');
+            link.setAttribute('data-type', 'image');
+        });
+
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: [],
+                    middle: [],
+                    right: ["close"]
+                }
+            },
+            Images: {
+                zoom: true
+            },
+            Carousel: {
+                infinite: false,
+                Dots: false
+            }
+        });
+    }, 500);
 </script>

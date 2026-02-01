@@ -156,11 +156,11 @@ function getAlbums() {
             const postContent = fs.readFileSync(postPath, 'utf8');
             
             // Parse front matter
-            const frontMatterMatch = postContent.match(/^---\n([\s\S]*?)\n---/);
+            const frontMatterMatch = postContent.match(/^---\r?\n([\s\S]*?)\r?\n---/);
             if (frontMatterMatch) {
                 const frontMatter = {};
-                frontMatterMatch[1].split('\n').forEach(line => {
-                    const match = line.match(/^(\w[\w-]*?):\s*(.*)$/);
+                frontMatterMatch[1].split(/\r?\n/).forEach(line => {
+                    const match = line.match(/^([\w-]*?):\s*(.*)$/);
                     if (match) {
                         let value = match[2].trim();
                         // Remove quotes if present
@@ -179,7 +179,15 @@ function getAlbums() {
                 // Read images
                 let images = [];
                 try {
-                    images = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+                    const rawImages = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+                    // Normalize image data to handle both old and new formats
+                    images = rawImages.map(img => ({
+                        url: img.url || img['imageFull-link'] || '',
+                        thumb: img.thumb || img['thumbnail-link'] || '',
+                        aspectRatio: parseFloat(img.aspectRatio || img['aspect-ratio'] || 1.5),
+                        width: img.width || 0,
+                        height: img.height || 0
+                    }));
                 } catch (e) {
                     console.error(`Error reading ${jsonFile}:`, e.message);
                 }

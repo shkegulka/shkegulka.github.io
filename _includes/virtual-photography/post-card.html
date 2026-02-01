@@ -26,11 +26,11 @@
 {%- endif -%}
 
 <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -65,7 +65,12 @@
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ post_url }}" class="project card text-themed" {%- if post.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>
-  <img loading="lazy" src="{{ site.data.virtual-photography[post.slug][post.card-image].image1080-link }}" alt="{{ include.album.title }}" class="card-img-top" style="object-position: 0 {{post.card-offset}}%;">
+  {%- assign album_data = site.data.virtual-photography[post.slug] -%}
+   {%- assign card_pic = album_data[post.card-image] -%}
+   {%- assign card_url = card_pic.url | default: card_pic.image1080-link -%}
+   {%- assign card_offset = post.card-offset | default: 0 | plus: 0 -%}
+   {%- assign card_offset_x = post.card-offset-x | default: 0 | plus: 0 -%}
+   <img loading="lazy" src="{{ card_url }}" alt="{{ include.album.title }}" class="card-img-top" style="object-position: {{ card_offset_x }}% {{ 100 | minus: card_offset }}%;">
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>{{ post.title }}</strong></h3>
 

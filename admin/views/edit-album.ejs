@@ -302,8 +302,8 @@
             align-items: flex-start;
         }
         
-        .card-preview-34 {
-            width: 90px;
+        .card-preview-main {
+            width: 105px;
             height: 120px;
             background-size: cover;
             background-position: center;
@@ -312,8 +312,8 @@
         }
         
         .card-preview-banner {
-            flex: 1;
-            height: 80px;
+            width: 200px;
+            aspect-ratio: 1518 / 300;
             background-size: cover;
             background-position: center;
             border-radius: 8px;
@@ -333,11 +333,12 @@
         
         .banner-preview {
             width: 100%;
-            height: 100px;
+            aspect-ratio: 1518 / 300;
             background-size: cover;
             background-position: center;
             border-radius: 8px;
             position: relative;
+            background-color: var(--bg-tertiary);
         }
         
         .banner-preview::before {
@@ -483,17 +484,17 @@
                             <div class="preview-label">Card Preview (Image #<span id="cardImageNum"><%= album.cardImage %></span>)</div>
                             <div class="preview-container">
                                 <div>
-                                    <div class="preview-type-label">3:4</div>
-                                    <div class="card-preview-34" id="cardPreview34" 
+                                    <div class="preview-type-label">Card (480x550)</div>
+                                    <div class="card-preview-main" id="cardPreviewMain" 
                                          style="background-image: url('<%= album.images[album.cardImage]?.thumb || '' %>');
-                                                background-position: <%= album.cardOffsetX %>% <%= album.cardOffset %>%;">
+                                                background-position: <%= album.cardOffsetX %>% <%= 100 - (album.cardOffset || 0) %>%;">
                                     </div>
                                 </div>
-                                <div style="flex: 1;">
-                                    <div class="preview-type-label">Banner</div>
+                                <div>
+                                    <div class="preview-type-label">Banner (1518x300)</div>
                                     <div class="card-preview-banner" id="cardPreviewBanner"
                                          style="background-image: url('<%= album.images[album.cardImage]?.thumb || '' %>');
-                                                background-position: <%= album.cardOffsetX %>% <%= album.cardOffset %>%;">
+                                                background-position: <%= album.cardOffsetX %>% <%= 100 - (album.cardOffset || 0) %>%;">
                                     </div>
                                 </div>
                             </div>
@@ -509,9 +510,9 @@
                         
                         <div class="preview-section">
                             <div class="preview-label">Banner Preview (Image #<span id="bannerImageNum"><%= album.bannerImage %></span>)</div>
-                            <div class="banner-preview" id="bannerPreview"
+                            <div class="banner-preview" id="bannerPreview" 
                                  style="background-image: url('<%= album.images[album.bannerImage]?.url || '' %>');
-                                        background-position: <%= album.bannerOffsetX %>% <%= 100 - album.bannerOffset %>%;">
+                                        background-position: <%= album.bannerOffsetX || 50 %>% <%= 100 - (album.bannerOffset || 0) %>%;">
                             </div>
                             <div class="mt-2">
                                 <label class="form-label small">Horizontal Position</label>
@@ -791,7 +792,7 @@
             
             if (images[cardImage]) {
                 const cardUrl = `url('${images[cardImage].thumb}')`;
-                document.getElementById('cardPreview34').style.backgroundImage = cardUrl;
+                document.getElementById('cardPreviewMain').style.backgroundImage = cardUrl;
                 document.getElementById('cardPreviewBanner').style.backgroundImage = cardUrl;
             }
             if (images[bannerImage]) {
@@ -803,8 +804,9 @@
         function updateCardPosition() {
             const x = document.getElementById('cardOffsetX').value;
             const y = document.getElementById('cardOffset').value;
-            document.getElementById('cardPreview34').style.backgroundPosition = `${x}% ${y}%`;
-            document.getElementById('cardPreviewBanner').style.backgroundPosition = `${x}% ${y}%`;
+            // 100 - y to match the site's logic where 0 is bottom
+            document.getElementById('cardPreviewMain').style.backgroundPosition = `${x}% ${100 - y}%`;
+            document.getElementById('cardPreviewBanner').style.backgroundPosition = `${x}% ${100 - y}%`;
         }
         
         document.getElementById('cardOffset').addEventListener('input', updateCardPosition);
@@ -814,6 +816,7 @@
         function updateBannerPosition() {
             const x = document.getElementById('bannerOffsetX').value;
             const y = document.getElementById('bannerOffset').value;
+            // 100 - y because on the site we use 'bottom y%'
             document.getElementById('bannerPreview').style.backgroundPosition = `${x}% ${100 - y}%`;
         }
         

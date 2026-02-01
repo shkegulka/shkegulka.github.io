@@ -8,9 +8,9 @@ categories: [virtual-photography]
 tags: []
 slug: black-myth-wukong
 card-image: 1
-card-offset: 50
-card-offset-x: 37
+card-offset: 100
+card-offset-x: 30
 banner-image: 0
 banner-offset: 72
-banner-offset-x: 50
+banner-offset-x: 44
 ---
