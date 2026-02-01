@@ -1,6 +1,30 @@
 [
   
     {
+      "title"    : "Black Myth: Wukong",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/virtual-photography/black-myth-wukong",
+      "date"     : "2026-02-01 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Lost Records: Bloom &amp; Rage",
+      "category" : "",
+      "tags"     : "Adventure",
+      "url"      : "/virtual-photography/lost-records",
+      "date"     : "2025-07-25 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "INDIKA",
+      "category" : "",
+      "tags"     : "Adventure",
+      "url"      : "/virtual-photography/indika",
+      "date"     : "2025-02-10 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "Syberia: The World Before",
       "category" : "",
       "tags"     : "Adventure",
@@ -38,14 +62,6 @@
       "tags"     : "Adventure",
       "url"      : "/virtual-photography/hellblade-2",
       "date"     : "2024-06-25 00:00:00 +0000"
-    } ,
-  
-    {
-      "title"    : "INDIKA",
-      "category" : "",
-      "tags"     : "Adventure",
-      "url"      : "/virtual-photography/indika",
-      "date"     : "2024-05-28 00:00:00 +0000"
     } ,
   
     {
