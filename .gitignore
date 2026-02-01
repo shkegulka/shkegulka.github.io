@@ -13,3 +13,6 @@ Gemfile.lock
 
 # Node.js
 node_modules/
+
+# Secrets
+.b2-config.json
