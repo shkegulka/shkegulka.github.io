@@ -83,10 +83,9 @@
     var css = (
       '#' + containerId + ' {' +
       '  position: relative;' +
-	  '  overflow: hidden;' + /** Added line as a temporary workaround for gallery alignment */
       '}' +
       '.' + classPrefix + '-figure {' +
-      '  background-color: #17191A;' +
+      '  background-color: inherit;' +
       '  overflow: hidden;' +
       '  left: 0;' +
       '  position: absolute;' +
