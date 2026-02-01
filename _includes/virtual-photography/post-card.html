@@ -77,17 +77,21 @@
   {%- assign album_data = site.data.virtual-photography[post.slug] -%}
     {%- assign card_pic = album_data[post.card-image] -%}
     {%- assign card_url = card_pic.url | default: card_pic.image1080-link -%}
-    {%- assign card_ar = card_pic.aspectRatio | default: 1.5 -%}
+    {%- assign card_ar = card_pic.width | times: 1.0 | divided_by: card_pic.height | default: card_pic.aspectRatio | default: 1.5 -%}
     {%- assign card_offset = post.card-offset | default: 0 | plus: 0 -%}
     {%- assign card_offset_x = post.card-offset-x | default: 0 | plus: 0 -%}
     {%- assign card_zoom = post.card-zoom | default: 100 | plus: 0 -%}
-    {%- assign card_container_ar = 0.8727 -%}
-    {%- if card_ar > card_container_ar -%}
-        {%- assign card_bg_size = "auto " | append: card_zoom | append: "%" -%}
+    {%- if card_zoom == 100 -%}
+        {%- assign card_bg_size = "cover" -%}
     {%- else -%}
-        {%- assign card_bg_size = card_zoom | append: "% auto" -%}
+        {%- assign card_container_ar = 480.0 | divided_by: 550.0 -%}
+        {%- if card_ar > card_container_ar -%}
+            {%- assign card_bg_size = "auto " | append: card_zoom | append: "%" -%}
+        {%- else -%}
+            {%- assign card_bg_size = card_zoom | append: "% auto" -%}
+        {%- endif -%}
     {%- endif -%}
-    <div class="card-img-top" style="background-image: url('{{ card_url }}'); background-position: {{ card_offset_x }}% {{ 100 | minus: card_offset }}%; background-size: {{ card_bg_size }}; background-repeat: no-repeat; background-color: #202029;"></div>
+    <div class="card-img-top" style="background-image: url('{{ card_url }}'); background-position: {{ card_offset_x }}% {{ 100 | minus: card_offset }}%; background-size: {{ card_bg_size }}; background-repeat: no-repeat; background-color: transparent;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>{{ post.title }}</strong></h3>
 
