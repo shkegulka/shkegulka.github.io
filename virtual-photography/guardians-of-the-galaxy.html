@@ -18,32 +18,40 @@
   
   
 
+  
+  
+
+  
+  
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Marvel&#39;s Guardians of the Galaxy">
-  <meta property="og:description" content="I take pics in virtual worlds and share them with the real one.">
-  <meta property="og:image" content="/assets/img/ema-pfp.gif">
+  <meta property="og:url" content="https://shkegulka.github.io/virtual-photography/guardians-of-the-galaxy">
+  <meta property="og:site_name" content="shkegulka">
+  <meta property="og:title" content="Marvel&amp;#39;s Guardians of the Galaxy | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/NMo5bvy.jpeg">
+  <meta property="og:image:alt" content="Marvel&#39;s Guardians of the Galaxy">
   
   <title>Marvel&#39;s Guardians of the Galaxy | shkegulka</title>
-  <meta name="description" content="">
+  <meta name="description" content="Virtual Photography">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="Marvel's Guardians of the Galaxy | ">
-  <meta name="twitter:description" content="
-">
-  <meta name="twitter:image" content="https://i.imgur.com/kf8kcwn.jpeg">
+  <meta name="twitter:title"   content="Marvel&amp;#39;s Guardians of the Galaxy | shkegulka">
+  <meta name="twitter:description" content="Virtual Photography">
+  <meta name="twitter:image" content="https://i.imgur.com/NMo5bvy.jpeg">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Marvel's Guardians of the Galaxy | ">
-  <meta property="og:description" content="
-">
-  <meta property="og:image" content="https://i.imgur.com/kf8kcwn.jpeg">
+  <meta property="og:title" content="Marvel&amp;#39;s Guardians of the Galaxy | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/NMo5bvy.jpeg">
 
   <!-- Theme style -->
   <script src="/assets/js/theme.js"></script>
@@ -60,10 +68,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="../js/jquery.swipebox.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 
 
@@ -98,6 +104,7 @@
 
 
 
+
 <style>
     .image-gallery {overflow: auto; margin-left: -1%!important;}
     .image-gallery a {float: left; display: block; margin: 0 0 1% 1%; width: 19%; text-align: center; text-decoration: none!important;}
@@ -109,21 +116,50 @@
 		margin: auto;
 	}
 
+    .pig-wrapper {
+        width: 100%;
+        position: relative;
+    }
+    .pig-figure {
+        background-color: #202029;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+    .pig-figure img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
     .banner {
-    background-image: url('https://i.imgur.com/NMo5bvy.jpeg');
-    background-size: cover;
-    background-position: right 0px bottom 85%;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
     }
 
     .banner-text {
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.3em black;
+    position: relative;
+    z-index: 2;
     }
 
     @media (max-width: 767px) {
@@ -148,7 +184,13 @@
 </style>
 
 <div class="vp">
+	
+	
+	
+	
+	
 	<div class="banner">
+		<div class="banner-bg" style="background-image: url('https://i.imgur.com/NMo5bvy.jpeg'); background-position: 50% 15%; background-size: 100% auto;"></div>
 		<div class="banner-text">
 			<h1><strong>Marvel's Guardians of the Galaxy</strong></h1>
 			<p><span class="date"><time datetime="2023-01-19T00:00:00+00:00"><strong>19 Jan 2023</strong></time><strong> | Eidos-Montréal </strong></span> </p>
@@ -161,109 +203,43 @@
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
-    var imageData = [
     
-        {"thumbnail":"https://i.imgur.com/8eW6EJi.jpeg", "image1080":"https://i.imgur.com/qO3W1Wt.jpeg", "imageFull":"https://i.imgur.com/eNHn0RF.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/EFF8mft.jpeg", "image1080":"https://i.imgur.com/LqgaiTO.jpeg", "imageFull":"https://i.imgur.com/ADpbX7l.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/YVvf9jE.jpeg", "image1080":"https://i.imgur.com/Htmqk9A.jpeg", "imageFull":"https://i.imgur.com/qr1sQDm.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/fmRxvdE.jpeg", "image1080":"https://i.imgur.com/U3yDHmy.jpeg", "imageFull":"https://i.imgur.com/a87Y4pt.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/e0naZN5.jpeg", "image1080":"https://i.imgur.com/0W0jLbj.jpeg", "imageFull":"https://i.imgur.com/ykkMTfT.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/kf8kcwn.jpeg", "image1080":"https://i.imgur.com/NMo5bvy.jpeg", "imageFull":"https://i.imgur.com/R82DBEf.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/EOGsd7t.jpeg", "image1080":"https://i.imgur.com/nfMkdaY.jpeg", "imageFull":"https://i.imgur.com/yVUaTF6.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/LFKc19s.jpeg", "image1080":"https://i.imgur.com/3ufz68a.jpeg", "imageFull":"https://i.imgur.com/o9z52Xf.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/XSHHVhh.jpeg", "image1080":"https://i.imgur.com/cB6w1UP.jpeg", "imageFull":"https://i.imgur.com/Nc0geed.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/hAj4ox1.jpeg", "image1080":"https://i.imgur.com/BKsuSQT.jpeg", "imageFull":"https://i.imgur.com/uwRqgDu.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/j9DsCdt.jpeg", "image1080":"https://i.imgur.com/OkSqD9r.jpeg", "imageFull":"https://i.imgur.com/qEIdWwW.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/nFfGhvz.jpeg", "image1080":"https://i.imgur.com/st21AVF.jpeg", "imageFull":"https://i.imgur.com/sFXviYg.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/g8271jb.jpeg", "image1080":"https://i.imgur.com/rAmHL4W.jpeg", "imageFull":"https://i.imgur.com/TWhttzk.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/C55Qbk1.jpeg", "image1080":"https://i.imgur.com/XLn1img.jpeg", "imageFull":"https://i.imgur.com/RzvUcXM.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/QEYgggV.jpeg", "image1080":"https://i.imgur.com/TLjwWXw.jpeg", "imageFull":"https://i.imgur.com/LzpB9PB.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/1IbcEHn.jpeg", "image1080":"https://i.imgur.com/BEzXX0R.jpeg", "imageFull":"https://i.imgur.com/63xfrXi.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/FhSkkP3.jpeg", "image1080":"https://i.imgur.com/vPP1mok.jpeg", "imageFull":"https://i.imgur.com/hG9Gg5P.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/NhGrvnR.jpeg", "image1080":"https://i.imgur.com/9ZI1KAn.jpeg", "imageFull":"https://i.imgur.com/pp0lZgl.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/x1JLrX8.jpeg", "image1080":"https://i.imgur.com/yWrmLaF.jpeg", "imageFull":"https://i.imgur.com/0wqIHvp.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/fyNrCCi.jpeg", "image1080":"https://i.imgur.com/aZEMInW.jpeg", "imageFull":"https://i.imgur.com/JiE8HHq.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/WctrTeZ.jpeg", "image1080":"https://i.imgur.com/tWZAE2G.jpeg", "imageFull":"https://i.imgur.com/en50Rjd.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/f9mH6Nd.jpeg", "image1080":"https://i.imgur.com/hzY0cp1.jpeg", "imageFull":"https://i.imgur.com/ZLhkOd8.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/NfxZvoK.jpeg", "image1080":"https://i.imgur.com/xD8Llhw.jpeg", "imageFull":"https://i.imgur.com/bdIY5xm.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/b6qlxRj.jpeg", "image1080":"https://i.imgur.com/bRu8VSP.jpeg", "imageFull":"https://i.imgur.com/bK4Xjc4.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/yHcI9Xq.jpeg", "image1080":"https://i.imgur.com/huHLRg0.jpeg", "imageFull":"https://i.imgur.com/Vl27Gt6.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/8VjqgPf.jpeg", "image1080":"https://i.imgur.com/C2Lg5jl.jpeg", "imageFull":"https://i.imgur.com/6SGGpdT.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/lhvhmcv.jpeg", "image1080":"https://i.imgur.com/lcQB9Ny.jpeg", "imageFull":"https://i.imgur.com/eUSTZLY.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/qQWIWmH.jpeg", "image1080":"https://i.imgur.com/YXrA7qS.jpeg", "imageFull":"https://i.imgur.com/OMltCt4.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/WupFb84.jpeg", "image1080":"https://i.imgur.com/mjZPKId.jpeg", "imageFull":"https://i.imgur.com/jz5cVFc.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/beMAwPd.jpeg", "image1080":"https://i.imgur.com/MJqGxz9.jpeg", "imageFull":"https://i.imgur.com/XQ4GkKJ.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/tDMn5Ti.jpeg", "image1080":"https://i.imgur.com/3TCDFVj.jpeg", "imageFull":"https://i.imgur.com/jT1p84C.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/jkjFZYI.jpeg", "image1080":"https://i.imgur.com/CMHi3rA.jpeg", "imageFull":"https://i.imgur.com/mDIBhTs.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/Hk1Jqub.jpeg", "image1080":"https://i.imgur.com/Lh126zz.jpeg", "imageFull":"https://i.imgur.com/rXuxJml.jpeg", "aspectRatio":1.0},
-    
-        {"thumbnail":"https://i.imgur.com/ot7Rugu.jpeg", "image1080":"https://i.imgur.com/Qb2NSuI.jpeg", "imageFull":"https://i.imgur.com/KfSTgfY.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/I2OwCbY.jpeg", "image1080":"https://i.imgur.com/qb8WQn1.jpeg", "imageFull":"https://i.imgur.com/qFh5Usd.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/Vd8TYbh.jpeg", "image1080":"https://i.imgur.com/Kg3FB7h.jpeg", "imageFull":"https://i.imgur.com/r9c9HLX.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/xvxRwdX.jpeg", "image1080":"https://i.imgur.com/ro8Uldq.jpeg", "imageFull":"https://i.imgur.com/R1PmhKY.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/HDE1ZKQ.jpeg", "image1080":"https://i.imgur.com/DTx19Qo.jpeg", "imageFull":"https://i.imgur.com/VpgLQh2.jpeg", "aspectRatio":0.8},
-    
-    ];
+    var imageData = JSON.parse('    [            {            "thumb": "https://i.imgur.com/8eW6EJi.jpeg",            "url": "https://i.imgur.com/eNHn0RF.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/EFF8mft.jpeg",            "url": "https://i.imgur.com/ADpbX7l.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/YVvf9jE.jpeg",            "url": "https://i.imgur.com/qr1sQDm.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/fmRxvdE.jpeg",            "url": "https://i.imgur.com/a87Y4pt.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/e0naZN5.jpeg",            "url": "https://i.imgur.com/ykkMTfT.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/kf8kcwn.jpeg",            "url": "https://i.imgur.com/R82DBEf.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/EOGsd7t.jpeg",            "url": "https://i.imgur.com/yVUaTF6.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/LFKc19s.jpeg",            "url": "https://i.imgur.com/o9z52Xf.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/XSHHVhh.jpeg",            "url": "https://i.imgur.com/Nc0geed.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/hAj4ox1.jpeg",            "url": "https://i.imgur.com/uwRqgDu.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/j9DsCdt.jpeg",            "url": "https://i.imgur.com/qEIdWwW.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/nFfGhvz.jpeg",            "url": "https://i.imgur.com/sFXviYg.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/g8271jb.jpeg",            "url": "https://i.imgur.com/TWhttzk.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/C55Qbk1.jpeg",            "url": "https://i.imgur.com/RzvUcXM.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/QEYgggV.jpeg",            "url": "https://i.imgur.com/LzpB9PB.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/1IbcEHn.jpeg",            "url": "https://i.imgur.com/63xfrXi.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/FhSkkP3.jpeg",            "url": "https://i.imgur.com/hG9Gg5P.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/NhGrvnR.jpeg",            "url": "https://i.imgur.com/pp0lZgl.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/x1JLrX8.jpeg",            "url": "https://i.imgur.com/0wqIHvp.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/fyNrCCi.jpeg",            "url": "https://i.imgur.com/JiE8HHq.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/WctrTeZ.jpeg",            "url": "https://i.imgur.com/en50Rjd.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/f9mH6Nd.jpeg",            "url": "https://i.imgur.com/ZLhkOd8.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/NfxZvoK.jpeg",            "url": "https://i.imgur.com/bdIY5xm.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/b6qlxRj.jpeg",            "url": "https://i.imgur.com/bK4Xjc4.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/yHcI9Xq.jpeg",            "url": "https://i.imgur.com/Vl27Gt6.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/8VjqgPf.jpeg",            "url": "https://i.imgur.com/6SGGpdT.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/lhvhmcv.jpeg",            "url": "https://i.imgur.com/eUSTZLY.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/qQWIWmH.jpeg",            "url": "https://i.imgur.com/OMltCt4.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/WupFb84.jpeg",            "url": "https://i.imgur.com/jz5cVFc.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/beMAwPd.jpeg",            "url": "https://i.imgur.com/XQ4GkKJ.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/tDMn5Ti.jpeg",            "url": "https://i.imgur.com/jT1p84C.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/jkjFZYI.jpeg",            "url": "https://i.imgur.com/mDIBhTs.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/Hk1Jqub.jpeg",            "url": "https://i.imgur.com/rXuxJml.jpeg",            "aspectRatio": "1.0"        },            {            "thumb": "https://i.imgur.com/ot7Rugu.jpeg",            "url": "https://i.imgur.com/KfSTgfY.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/I2OwCbY.jpeg",            "url": "https://i.imgur.com/qFh5Usd.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/Vd8TYbh.jpeg",            "url": "https://i.imgur.com/r9c9HLX.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/xvxRwdX.jpeg",            "url": "https://i.imgur.com/R1PmhKY.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/HDE1ZKQ.jpeg",            "url": "https://i.imgur.com/VpgLQh2.jpeg",            "aspectRatio": "0.8"        }        ]    ');
     var pig = new Pig(imageData, {
-    urlForSize: function(imageUrls, sizewidth) {
-    if (sizewidth <= 1080){
-        return imageUrls.thumbnail;
-    }
-    else if(sizewidth <= 1920){
-        return imageUrls.image1080;
-    }
-    return imageUrls.imageFull;
-    },
     addAnchorTag: true,
-    anchorTargetDir: "",
-    anchorClass: "swipebox"
+    anchorClass: "vp-photo-link"
     }).enable();
-    ;( function( $ ) {
-    $( '.swipebox' ).swipebox();
-    } )( jQuery );
+
+    // Fancybox initialization
+    setTimeout(function() {
+        var links = document.querySelectorAll('.vp-photo-link');
+        links.forEach(function(link) {
+            link.setAttribute('data-fancybox', 'gallery');
+            link.setAttribute('data-type', 'image');
+        });
+
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: [],
+                    middle: [],
+                    right: ["close"]
+                }
+            },
+            Images: {
+                zoom: true
+            },
+            Carousel: {
+                infinite: false,
+                Dots: false
+            }
+        });
+    }, 500);
 </script>
 </div>
   </div>
   </main>
-  <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
-  </small>
+  <footer class="mt-auto py-3 text-center">
 
   <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
        style="color: #6c757d"
@@ -292,6 +268,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- Popper.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

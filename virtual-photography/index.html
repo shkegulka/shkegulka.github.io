@@ -18,30 +18,40 @@
   
   
 
+  
+  
+
+  
+  
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Virtual Photography">
-  <meta property="og:description" content="I take pics in virtual worlds and share them with the real one.">
-  <meta property="og:image" content="/assets/img/ema-pfp.gif">
+  <meta property="og:url" content="https://shkegulka.github.io/virtual-photography/">
+  <meta property="og:site_name" content="shkegulka">
+  <meta property="og:title" content="Virtual Photography | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://shkegulka.github.io/assets/img/ema-pfp.gif">
+  <meta property="og:image:alt" content="Virtual Photography">
   
   <title>Virtual Photography | shkegulka</title>
-  <meta name="description" content="">
+  <meta name="description" content="Virtual Photography">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="Virtual Photography | ">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:title"   content="Virtual Photography | shkegulka">
+  <meta name="twitter:description" content="Virtual Photography">
+  <meta name="twitter:image" content="https://shkegulka.github.io/assets/img/ema-pfp.gif">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Virtual Photography | ">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Virtual Photography | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://shkegulka.github.io/assets/img/ema-pfp.gif">
 
   <!-- Theme style -->
   <script src="/assets/js/theme.js"></script>
@@ -58,10 +68,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="../js/jquery.swipebox.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 
 
@@ -144,11 +152,11 @@
 
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -179,31 +187,43 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/black-myth-wukong" class="project card text-themed">
-  <img loading="lazy" src="" alt="" class="card-img-top" style="object-position: 0 50%;">
+  <a href="/virtual-photography/black-myth-wukong" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img001.jpg'); background-position: 27% 43%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Black Myth: Wukong</strong></h3>
 
       <p class="card-title">
         
+        <span class="badge badge-dark">action</span>
+        
+        <span class="badge badge-dark">adventure</span>
+        
       </p>
       <!-- <p class="card-text">Virtual Photography</p> -->
 	  <p class="card-text">
-      01 February 2026
+      31 January 2026
 	  </p>
     </div>
   </a>
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -234,11 +254,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/lost-records" class="project card text-themed">
-  <img loading="lazy" src="" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/lost-records" class="project card text-themed"><div class="card-img-top" style="background-image: url(''); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Lost Records: Bloom & Rage</strong></h3>
 
@@ -257,11 +285,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -292,11 +320,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/indika" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/SeegBMC.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/indika" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/SeegBMC.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>INDIKA</strong></h3>
 
@@ -315,11 +351,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -350,11 +386,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/syberia-twb" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/ShqYZuK.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/syberia-twb" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/ShqYZuK.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Syberia: The World Before</strong></h3>
 
@@ -373,11 +417,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -408,11 +452,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/syberia-3" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/n3cI8P9.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/syberia-3" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/n3cI8P9.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Syberia 3</strong></h3>
 
@@ -431,11 +483,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -466,11 +518,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/elden-ring" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/YnJBDDn.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/elden-ring" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/YnJBDDn.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Elden Ring</strong></h3>
 
@@ -489,11 +549,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -524,11 +584,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/kingdom-come-deliverance" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/GEPhafv.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/kingdom-come-deliverance" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/GEPhafv.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Kingdom Come: Deliverance</strong></h3>
 
@@ -547,11 +615,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -582,11 +650,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/hellblade-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/uAxTAjJ.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/hellblade-2" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/uAxTAjJ.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Senua's Saga: Hellblade II</strong></h3>
 
@@ -605,11 +681,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -640,11 +716,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/dragons-dogma-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/TAb2znh.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/dragons-dogma-2" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/TAb2znh.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Dragon's Dogma 2</strong></h3>
 
@@ -663,11 +747,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -698,11 +782,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/lords-of-the-fallen" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/4KjLrK5.jpeg" alt="" class="card-img-top" style="object-position: 0 10%;">
+  <a href="/virtual-photography/lords-of-the-fallen" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/4KjLrK5.jpeg'); background-position: 0% 90%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Lords of the Fallen</strong></h3>
 
@@ -721,11 +813,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -756,11 +848,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/brothers-in-arms-rth30" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/WQrT9Rs.jpeg" alt="" class="card-img-top" style="object-position: 0 10%;">
+  <a href="/virtual-photography/brothers-in-arms-rth30" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/WQrT9Rs.jpeg'); background-position: 0% 90%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Brothers in Arms: Road to Hill 30</strong></h3>
 
@@ -779,11 +879,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -814,11 +914,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/brothers-in-arms-eib" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/3SEk13I.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/brothers-in-arms-eib" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/3SEk13I.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Brothers in Arms: Earned in Blood</strong></h3>
 
@@ -837,11 +945,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -872,11 +980,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/tekken-8" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/6rW0I41.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/tekken-8" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/6rW0I41.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>TEKKEN 8</strong></h3>
 
@@ -895,11 +1011,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -930,11 +1046,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/alan-wake-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/t2TFu4U.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/alan-wake-2" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/t2TFu4U.jpeg'); background-position: 50% 50%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Alan Wake 2</strong></h3>
 
@@ -943,8 +1067,7 @@
         <span class="badge badge-dark">Action</span>
         
       </p>
-      <!-- <p class="card-text">
-</p> -->
+      <!-- <p class="card-text">description test on Alan Wake 2 album made by one of the best putsovagers!</p> -->
 	  <p class="card-text">
       03 December 2023
 	  </p>
@@ -953,11 +1076,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -988,11 +1111,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/ghostrunner-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/H5LHGwI.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/ghostrunner-2" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/H5LHGwI.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Ghostrunner 2</strong></h3>
 
@@ -1011,11 +1142,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1046,11 +1177,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/starfield" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/nQXQiVl.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/starfield" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/nQXQiVl.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Starfield</strong></h3>
 
@@ -1069,11 +1208,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1104,11 +1243,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/returnal" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/Csp71YX.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/returnal" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/Csp71YX.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Returnal</strong></h3>
 
@@ -1127,11 +1274,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1162,11 +1309,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/hi-fi-rush" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/O8g8ipt.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/hi-fi-rush" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/O8g8ipt.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Hi-Fi RUSH</strong></h3>
 
@@ -1185,11 +1340,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1220,11 +1375,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/resident-evil-3" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/Vgz7M9M.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/resident-evil-3" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/Vgz7M9M.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Resident Evil 3</strong></h3>
 
@@ -1243,11 +1406,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1278,11 +1441,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/sw-jedi-survivor" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/6WvWlfO.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/sw-jedi-survivor" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/6WvWlfO.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Star Wars Jedi: Survivor</strong></h3>
 
@@ -1301,11 +1472,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1336,11 +1507,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/assetto-corsa" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/kjgsbcq.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/assetto-corsa" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/kjgsbcq.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Assetto Corsa</strong></h3>
 
@@ -1359,11 +1538,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1394,11 +1573,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/total-war-warhammer-3" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/GtJQvSo.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/total-war-warhammer-3" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/GtJQvSo.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Total War: WARHAMMER III</strong></h3>
 
@@ -1417,11 +1604,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1452,11 +1639,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/total-war-rome-2" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/8eOJyx5.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/total-war-rome-2" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/8eOJyx5.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Total War: ROME II</strong></h3>
 
@@ -1475,11 +1670,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1510,11 +1705,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/dead-space" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/SvrmQjI.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/dead-space" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/SvrmQjI.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Dead Space</strong></h3>
 
@@ -1533,11 +1736,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1568,11 +1771,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/nfs-unbound" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/0WyD4hc.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/nfs-unbound" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/0WyD4hc.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Need for Speed Unbound</strong></h3>
 
@@ -1591,11 +1802,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1626,11 +1837,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/ready-or-not" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/qHVxnBn.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/ready-or-not" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/qHVxnBn.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Ready or Not</strong></h3>
 
@@ -1649,11 +1868,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1684,11 +1903,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/guardians-of-the-galaxy" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/U3yDHmy.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/guardians-of-the-galaxy" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/U3yDHmy.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Marvel's Guardians of the Galaxy</strong></h3>
 
@@ -1707,11 +1934,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1742,11 +1969,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/darksiders-3" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/Cgs1cT9.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/darksiders-3" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/Cgs1cT9.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Darksiders III</strong></h3>
 
@@ -1765,11 +2000,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1800,11 +2035,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/nfs-heat" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/CxgOFux.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/nfs-heat" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/CxgOFux.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Need for Speed Heat</strong></h3>
 
@@ -1823,11 +2066,11 @@
 </div>
   
     <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -1858,11 +2101,19 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/virtual-photography/mass-effect-le" class="project card text-themed">
-  <img loading="lazy" src="https://i.imgur.com/XVO9z2e.jpeg" alt="" class="card-img-top" style="object-position: 0 %;">
+  <a href="/virtual-photography/mass-effect-le" class="project card text-themed"><div class="card-img-top" style="background-image: url('https://i.imgur.com/XVO9z2e.jpeg'); background-position: 0% 100%; background-size: auto 100%; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>Mass Effect: Ledengary Edition</strong></h3>
 
@@ -1885,9 +2136,7 @@
 </div>
   </div>
   </main>
-  <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
-  </small>
+  <footer class="mt-auto py-3 text-center">
 
   <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
        style="color: #6c757d"
@@ -1916,6 +2165,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- Popper.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

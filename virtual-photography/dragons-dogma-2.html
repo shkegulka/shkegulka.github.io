@@ -18,32 +18,40 @@
   
   
 
+  
+  
+
+  
+  
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Dragon&#39;s Dogma 2">
-  <meta property="og:description" content="I take pics in virtual worlds and share them with the real one.">
-  <meta property="og:image" content="/assets/img/ema-pfp.gif">
+  <meta property="og:url" content="https://shkegulka.github.io/virtual-photography/dragons-dogma-2">
+  <meta property="og:site_name" content="shkegulka">
+  <meta property="og:title" content="Dragon&amp;#39;s Dogma 2 | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/DeF0uUQ.jpeg">
+  <meta property="og:image:alt" content="Dragon&#39;s Dogma 2">
   
   <title>Dragon&#39;s Dogma 2 | shkegulka</title>
-  <meta name="description" content="">
+  <meta name="description" content="Virtual Photography">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="Dragon's Dogma 2 | ">
-  <meta name="twitter:description" content="
-">
-  <meta name="twitter:image" content="https://i.imgur.com/4ofzS05.jpeg">
+  <meta name="twitter:title"   content="Dragon&amp;#39;s Dogma 2 | shkegulka">
+  <meta name="twitter:description" content="Virtual Photography">
+  <meta name="twitter:image" content="https://i.imgur.com/DeF0uUQ.jpeg">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Dragon's Dogma 2 | ">
-  <meta property="og:description" content="
-">
-  <meta property="og:image" content="https://i.imgur.com/4ofzS05.jpeg">
+  <meta property="og:title" content="Dragon&amp;#39;s Dogma 2 | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/DeF0uUQ.jpeg">
 
   <!-- Theme style -->
   <script src="/assets/js/theme.js"></script>
@@ -60,10 +68,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="../js/jquery.swipebox.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 
 
@@ -98,6 +104,7 @@
 
 
 
+
 <style>
     .image-gallery {overflow: auto; margin-left: -1%!important;}
     .image-gallery a {float: left; display: block; margin: 0 0 1% 1%; width: 19%; text-align: center; text-decoration: none!important;}
@@ -109,21 +116,50 @@
 		margin: auto;
 	}
 
+    .pig-wrapper {
+        width: 100%;
+        position: relative;
+    }
+    .pig-figure {
+        background-color: #202029;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+    .pig-figure img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
     .banner {
-    background-image: url('https://i.imgur.com/DeF0uUQ.jpeg');
-    background-size: cover;
-    background-position: right 0px bottom 75%;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
     }
 
     .banner-text {
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.3em black;
+    position: relative;
+    z-index: 2;
     }
 
     @media (max-width: 767px) {
@@ -148,7 +184,13 @@
 </style>
 
 <div class="vp">
+	
+	
+	
+	
+	
 	<div class="banner">
+		<div class="banner-bg" style="background-image: url('https://i.imgur.com/DeF0uUQ.jpeg'); background-position: 50% 25%; background-size: 100% auto;"></div>
 		<div class="banner-text">
 			<h1><strong>Dragon's Dogma 2</strong></h1>
 			<p><span class="date"><time datetime="2024-04-18T00:00:00+00:00"><strong>18 Apr 2024</strong></time><strong> | CAPCOM </strong></span> </p>
@@ -161,67 +203,43 @@
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
-    var imageData = [
     
-        {"thumbnail":"https://i.imgur.com/vq80GwH.jpeg", "image1080":"https://i.imgur.com/GG5iub2.jpeg", "imageFull":"https://i.imgur.com/3DMVj1O.jpeg", "aspectRatio":2.33125},
-    
-        {"thumbnail":"https://i.imgur.com/reCF4UB.jpeg", "image1080":"https://i.imgur.com/7gJhJJE.jpeg", "imageFull":"https://i.imgur.com/CMtWmWj.jpeg", "aspectRatio":2.33125},
-    
-        {"thumbnail":"https://i.imgur.com/yC15iAf.jpeg", "image1080":"https://i.imgur.com/4G57yiq.jpeg", "imageFull":"https://i.imgur.com/RNExglQ.jpeg", "aspectRatio":2.33125},
-    
-        {"thumbnail":"https://i.imgur.com/gUxh7tD.jpeg", "image1080":"https://i.imgur.com/hhxylOp.jpeg", "imageFull":"https://i.imgur.com/cyvIlhz.jpeg", "aspectRatio":2.33125},
-    
-        {"thumbnail":"https://i.imgur.com/oPowWiX.jpeg", "image1080":"https://i.imgur.com/3dNnO3X.jpeg", "imageFull":"https://i.imgur.com/hLS9gnh.jpeg", "aspectRatio":2.33125},
-    
-        {"thumbnail":"https://i.imgur.com/nPuM4kA.jpeg", "image1080":"https://i.imgur.com/cAcC1ZZ.jpeg", "imageFull":"https://i.imgur.com/tOvhiwk.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/9blItrg.jpeg", "image1080":"https://i.imgur.com/h7yI9RR.jpeg", "imageFull":"https://i.imgur.com/pdMeyaH.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/bHpywwg.jpeg", "image1080":"https://i.imgur.com/At4eaND.jpeg", "imageFull":"https://i.imgur.com/wScwNDw.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/HEMTRky.jpeg", "image1080":"https://i.imgur.com/yQNJLE7.jpeg", "imageFull":"https://i.imgur.com/K2L93IT.jpeg", "aspectRatio":2.3340277777777776},
-    
-        {"thumbnail":"https://i.imgur.com/cG2zhCS.jpeg", "image1080":"https://i.imgur.com/6iMqmmX.jpeg", "imageFull":"https://i.imgur.com/YeeZyiv.jpeg", "aspectRatio":2.3333333333333335},
-    
-        {"thumbnail":"https://i.imgur.com/et9wdBN.jpeg", "image1080":"https://i.imgur.com/uWZCyKA.jpeg", "imageFull":"https://i.imgur.com/1o2MMjG.jpeg", "aspectRatio":2.3333333333333335},
-    
-        {"thumbnail":"https://i.imgur.com/KPy7NB3.jpeg", "image1080":"https://i.imgur.com/e9ptCF5.jpeg", "imageFull":"https://i.imgur.com/2y7gD2N.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/IV4MnB5.jpeg", "image1080":"https://i.imgur.com/WmofCuf.jpeg", "imageFull":"https://i.imgur.com/LqnQdyr.jpeg", "aspectRatio":2.3333333333333335},
-    
-        {"thumbnail":"https://i.imgur.com/tljmYrL.jpeg", "image1080":"https://i.imgur.com/CBmCYJH.jpeg", "imageFull":"https://i.imgur.com/x48v0vp.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/lyoeRVf.jpeg", "image1080":"https://i.imgur.com/udCNOeO.jpeg", "imageFull":"https://i.imgur.com/mGOH7Un.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/MSMlVte.jpeg", "image1080":"https://i.imgur.com/TAb2znh.jpeg", "imageFull":"https://i.imgur.com/QybPRN4.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/4ofzS05.jpeg", "image1080":"https://i.imgur.com/DeF0uUQ.jpeg", "imageFull":"https://i.imgur.com/i0s8FHe.jpeg", "aspectRatio":2.3333333333333335},
-    
-    ];
+    var imageData = JSON.parse('    [            {            "thumb": "https://i.imgur.com/vq80GwH.jpeg",            "url": "https://i.imgur.com/3DMVj1O.jpeg",            "aspectRatio": "2.33125"        },            {            "thumb": "https://i.imgur.com/reCF4UB.jpeg",            "url": "https://i.imgur.com/CMtWmWj.jpeg",            "aspectRatio": "2.33125"        },            {            "thumb": "https://i.imgur.com/yC15iAf.jpeg",            "url": "https://i.imgur.com/RNExglQ.jpeg",            "aspectRatio": "2.33125"        },            {            "thumb": "https://i.imgur.com/gUxh7tD.jpeg",            "url": "https://i.imgur.com/cyvIlhz.jpeg",            "aspectRatio": "2.33125"        },            {            "thumb": "https://i.imgur.com/oPowWiX.jpeg",            "url": "https://i.imgur.com/hLS9gnh.jpeg",            "aspectRatio": "2.33125"        },            {            "thumb": "https://i.imgur.com/nPuM4kA.jpeg",            "url": "https://i.imgur.com/tOvhiwk.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/9blItrg.jpeg",            "url": "https://i.imgur.com/pdMeyaH.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/bHpywwg.jpeg",            "url": "https://i.imgur.com/wScwNDw.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/HEMTRky.jpeg",            "url": "https://i.imgur.com/K2L93IT.jpeg",            "aspectRatio": "2.3340277777777776"        },            {            "thumb": "https://i.imgur.com/cG2zhCS.jpeg",            "url": "https://i.imgur.com/YeeZyiv.jpeg",            "aspectRatio": "2.3333333333333335"        },            {            "thumb": "https://i.imgur.com/et9wdBN.jpeg",            "url": "https://i.imgur.com/1o2MMjG.jpeg",            "aspectRatio": "2.3333333333333335"        },            {            "thumb": "https://i.imgur.com/KPy7NB3.jpeg",            "url": "https://i.imgur.com/2y7gD2N.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/IV4MnB5.jpeg",            "url": "https://i.imgur.com/LqnQdyr.jpeg",            "aspectRatio": "2.3333333333333335"        },            {            "thumb": "https://i.imgur.com/tljmYrL.jpeg",            "url": "https://i.imgur.com/x48v0vp.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/lyoeRVf.jpeg",            "url": "https://i.imgur.com/mGOH7Un.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/MSMlVte.jpeg",            "url": "https://i.imgur.com/QybPRN4.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/4ofzS05.jpeg",            "url": "https://i.imgur.com/i0s8FHe.jpeg",            "aspectRatio": "2.3333333333333335"        }        ]    ');
     var pig = new Pig(imageData, {
-    urlForSize: function(imageUrls, sizewidth) {
-    if (sizewidth <= 1080){
-        return imageUrls.thumbnail;
-    }
-    else if(sizewidth <= 1920){
-        return imageUrls.image1080;
-    }
-    return imageUrls.imageFull;
-    },
     addAnchorTag: true,
-    anchorTargetDir: "",
-    anchorClass: "swipebox"
+    anchorClass: "vp-photo-link"
     }).enable();
-    ;( function( $ ) {
-    $( '.swipebox' ).swipebox();
-    } )( jQuery );
+
+    // Fancybox initialization
+    setTimeout(function() {
+        var links = document.querySelectorAll('.vp-photo-link');
+        links.forEach(function(link) {
+            link.setAttribute('data-fancybox', 'gallery');
+            link.setAttribute('data-type', 'image');
+        });
+
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: [],
+                    middle: [],
+                    right: ["close"]
+                }
+            },
+            Images: {
+                zoom: true
+            },
+            Carousel: {
+                infinite: false,
+                Dots: false
+            }
+        });
+    }, 500);
 </script>
 </div>
   </div>
   </main>
-  <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
-  </small>
+  <footer class="mt-auto py-3 text-center">
 
   <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
        style="color: #6c757d"
@@ -250,6 +268,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- Popper.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

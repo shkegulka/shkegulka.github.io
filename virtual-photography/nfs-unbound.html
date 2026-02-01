@@ -18,32 +18,40 @@
   
   
 
+  
+  
+
+  
+  
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Need for Speed Unbound">
-  <meta property="og:description" content="I take pics in virtual worlds and share them with the real one.">
-  <meta property="og:image" content="/assets/img/ema-pfp.gif">
+  <meta property="og:url" content="https://shkegulka.github.io/virtual-photography/nfs-unbound">
+  <meta property="og:site_name" content="shkegulka">
+  <meta property="og:title" content="Need for Speed Unbound | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/H6r5I61.jpeg">
+  <meta property="og:image:alt" content="Need for Speed Unbound">
   
   <title>Need for Speed Unbound | shkegulka</title>
-  <meta name="description" content="">
+  <meta name="description" content="Virtual Photography">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="Need for Speed Unbound | ">
-  <meta name="twitter:description" content="
-">
-  <meta name="twitter:image" content="https://i.imgur.com/ujcEJCD.jpeg">
+  <meta name="twitter:title"   content="Need for Speed Unbound | shkegulka">
+  <meta name="twitter:description" content="Virtual Photography">
+  <meta name="twitter:image" content="https://i.imgur.com/H6r5I61.jpeg">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Need for Speed Unbound | ">
-  <meta property="og:description" content="
-">
-  <meta property="og:image" content="https://i.imgur.com/ujcEJCD.jpeg">
+  <meta property="og:title" content="Need for Speed Unbound | shkegulka">
+  <meta property="og:description" content="Virtual Photography">
+  <meta property="og:image" content="https://i.imgur.com/H6r5I61.jpeg">
 
   <!-- Theme style -->
   <script src="/assets/js/theme.js"></script>
@@ -60,10 +68,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="../js/jquery.swipebox.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 
 
@@ -98,6 +104,7 @@
 
 
 
+
 <style>
     .image-gallery {overflow: auto; margin-left: -1%!important;}
     .image-gallery a {float: left; display: block; margin: 0 0 1% 1%; width: 19%; text-align: center; text-decoration: none!important;}
@@ -109,21 +116,50 @@
 		margin: auto;
 	}
 
+    .pig-wrapper {
+        width: 100%;
+        position: relative;
+    }
+    .pig-figure {
+        background-color: #202029;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+    .pig-figure img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
     .banner {
-    background-image: url('https://i.imgur.com/H6r5I61.jpeg');
-    background-size: cover;
-    background-position: right 0px bottom 85%;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
     }
 
     .banner-text {
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.3em black;
+    position: relative;
+    z-index: 2;
     }
 
     @media (max-width: 767px) {
@@ -148,7 +184,13 @@
 </style>
 
 <div class="vp">
+	
+	
+	
+	
+	
 	<div class="banner">
+		<div class="banner-bg" style="background-image: url('https://i.imgur.com/H6r5I61.jpeg'); background-position: 50% 15%; background-size: 100% auto;"></div>
 		<div class="banner-text">
 			<h1><strong>Need for Speed Unbound</strong></h1>
 			<p><span class="date"><time datetime="2023-01-30T00:00:00+00:00"><strong>30 Jan 2023</strong></time><strong> | Criterion </strong></span> </p>
@@ -161,57 +203,43 @@
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
-    var imageData = [
     
-        {"thumbnail":"https://i.imgur.com/OFjX8Ss.jpeg", "image1080":"https://i.imgur.com/jOKDgzF.jpeg", "imageFull":"https://i.imgur.com/FLmHYPt.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/CZgRlW9.jpeg", "image1080":"https://i.imgur.com/094Od1Z.jpeg", "imageFull":"https://i.imgur.com/asmb698.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/BHy0Osg.jpeg", "image1080":"https://i.imgur.com/DMZkYhy.jpeg", "imageFull":"https://i.imgur.com/fejTVd7.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/o2Ag2UC.jpeg", "image1080":"https://i.imgur.com/5nA9tnS.jpeg", "imageFull":"https://i.imgur.com/F2GywBu.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/xRUBr2D.jpeg", "image1080":"https://i.imgur.com/fddrNJW.jpeg", "imageFull":"https://i.imgur.com/qZDkfEM.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/xI9AVrc.jpeg", "image1080":"https://i.imgur.com/OBUeY09.jpeg", "imageFull":"https://i.imgur.com/Iw6IVGq.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/j3x5z3C.jpeg", "image1080":"https://i.imgur.com/qNkpMrg.jpeg", "imageFull":"https://i.imgur.com/m1l4ujz.jpeg", "aspectRatio":1.7777777777777777},
-    
-        {"thumbnail":"https://i.imgur.com/4Gbnbbf.jpeg", "image1080":"https://i.imgur.com/0WyD4hc.jpeg", "imageFull":"https://i.imgur.com/glyszcU.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/XlrnOM6.jpeg", "image1080":"https://i.imgur.com/8N1kXhn.jpeg", "imageFull":"https://i.imgur.com/lFzh4xX.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/ujcEJCD.jpeg", "image1080":"https://i.imgur.com/H6r5I61.jpeg", "imageFull":"https://i.imgur.com/7Mp4XSK.jpeg", "aspectRatio":2.333637192342753},
-    
-        {"thumbnail":"https://i.imgur.com/I2bmwmI.jpeg", "image1080":"https://i.imgur.com/ge33iPM.jpeg", "imageFull":"https://i.imgur.com/CQ8l7c6.jpeg", "aspectRatio":0.8},
-    
-        {"thumbnail":"https://i.imgur.com/9YBksdo.jpeg", "image1080":"https://i.imgur.com/OHf30t4.jpeg", "imageFull":"https://i.imgur.com/zZik46K.jpeg", "aspectRatio":2.333637192342753},
-    
-    ];
+    var imageData = JSON.parse('    [            {            "thumb": "https://i.imgur.com/OFjX8Ss.jpeg",            "url": "https://i.imgur.com/FLmHYPt.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/CZgRlW9.jpeg",            "url": "https://i.imgur.com/asmb698.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/BHy0Osg.jpeg",            "url": "https://i.imgur.com/fejTVd7.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/o2Ag2UC.jpeg",            "url": "https://i.imgur.com/F2GywBu.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/xRUBr2D.jpeg",            "url": "https://i.imgur.com/qZDkfEM.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/xI9AVrc.jpeg",            "url": "https://i.imgur.com/Iw6IVGq.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/j3x5z3C.jpeg",            "url": "https://i.imgur.com/m1l4ujz.jpeg",            "aspectRatio": "1.7777777777777777"        },            {            "thumb": "https://i.imgur.com/4Gbnbbf.jpeg",            "url": "https://i.imgur.com/glyszcU.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/XlrnOM6.jpeg",            "url": "https://i.imgur.com/lFzh4xX.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/ujcEJCD.jpeg",            "url": "https://i.imgur.com/7Mp4XSK.jpeg",            "aspectRatio": "2.333637192342753"        },            {            "thumb": "https://i.imgur.com/I2bmwmI.jpeg",            "url": "https://i.imgur.com/CQ8l7c6.jpeg",            "aspectRatio": "0.8"        },            {            "thumb": "https://i.imgur.com/9YBksdo.jpeg",            "url": "https://i.imgur.com/zZik46K.jpeg",            "aspectRatio": "2.333637192342753"        }        ]    ');
     var pig = new Pig(imageData, {
-    urlForSize: function(imageUrls, sizewidth) {
-    if (sizewidth <= 1080){
-        return imageUrls.thumbnail;
-    }
-    else if(sizewidth <= 1920){
-        return imageUrls.image1080;
-    }
-    return imageUrls.imageFull;
-    },
     addAnchorTag: true,
-    anchorTargetDir: "",
-    anchorClass: "swipebox"
+    anchorClass: "vp-photo-link"
     }).enable();
-    ;( function( $ ) {
-    $( '.swipebox' ).swipebox();
-    } )( jQuery );
+
+    // Fancybox initialization
+    setTimeout(function() {
+        var links = document.querySelectorAll('.vp-photo-link');
+        links.forEach(function(link) {
+            link.setAttribute('data-fancybox', 'gallery');
+            link.setAttribute('data-type', 'image');
+        });
+
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: [],
+                    middle: [],
+                    right: ["close"]
+                }
+            },
+            Images: {
+                zoom: true
+            },
+            Carousel: {
+                infinite: false,
+                Dots: false
+            }
+        });
+    }, 500);
 </script>
 </div>
   </div>
   </main>
-  <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
-  </small>
+  <footer class="mt-auto py-3 text-center">
 
   <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
        style="color: #6c757d"
@@ -240,6 +268,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- Popper.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

@@ -18,14 +18,24 @@
   
   
 
+  
+  
+
+  
+  
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Black Myth: Wukong">
+  <meta property="og:url" content="https://shkegulka.github.io/virtual-photography/black-myth-wukong">
+  <meta property="og:site_name" content="shkegulka">
+  <meta property="og:title" content="Black Myth: Wukong | shkegulka">
   <meta property="og:description" content="Virtual Photography">
-  <meta property="og:image" content="/assets/img/ema-pfp.gif">
+  <meta property="og:image" content="https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg">
+  <meta property="og:image:alt" content="Black Myth: Wukong">
   
   <title>Black Myth: Wukong | shkegulka</title>
   <meta name="description" content="Virtual Photography">
@@ -34,14 +44,14 @@
   
   <!-- Twitter cards -->
   <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:title"   content="Black Myth: Wukong | ">
+  <meta name="twitter:title"   content="Black Myth: Wukong | shkegulka">
   <meta name="twitter:description" content="Virtual Photography">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:image" content="https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg">
   
   <!-- Facebook OpenGraph -->
-  <meta property="og:title" content="Black Myth: Wukong | ">
+  <meta property="og:title" content="Black Myth: Wukong | shkegulka">
   <meta property="og:description" content="Virtual Photography">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg">
 
   <!-- Theme style -->
   <script src="/assets/js/theme.js"></script>
@@ -58,10 +68,8 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-  <script src="../js/jquery.swipebox.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 
 
@@ -96,6 +104,7 @@
 
 
 
+
 <style>
     .image-gallery {overflow: auto; margin-left: -1%!important;}
     .image-gallery a {float: left; display: block; margin: 0 0 1% 1%; width: 19%; text-align: center; text-decoration: none!important;}
@@ -107,21 +116,50 @@
 		margin: auto;
 	}
 
+    .pig-wrapper {
+        width: 100%;
+        position: relative;
+    }
+    .pig-figure {
+        background-color: #202029;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+    .pig-figure img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
     .banner {
-    background-image: url('');
-    background-size: cover;
-    background-position: right 0px bottom 72%;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
     }
 
     .banner-text {
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.3em black;
+    position: relative;
+    z-index: 2;
     }
 
     @media (max-width: 767px) {
@@ -146,10 +184,16 @@
 </style>
 
 <div class="vp">
+	
+	
+	
+	
+	
 	<div class="banner">
+		<div class="banner-bg" style="background-image: url('https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg'); background-position: 50% 25%; background-size: 100% auto;"></div>
 		<div class="banner-text">
 			<h1><strong>Black Myth: Wukong</strong></h1>
-			<p><span class="date"><time datetime="2026-02-01T00:00:00+00:00"><strong>01 Feb 2026</strong></time><strong> | I can't remember </strong></span> </p>
+			<p><span class="date"><time datetime="2026-01-31T00:00:00+00:00"><strong>31 Jan 2026</strong></time><strong> | Game Science </strong></span> </p>
 		</div>
 	</div>
 
@@ -159,37 +203,43 @@
 </div>
 <script type="text/javascript" src="../js/pig.js"></script>
 <script type="text/javascript">
-    var imageData = [
     
-        {"thumbnail":"", "image1080":"", "imageFull":"", "aspectRatio":},
-    
-        {"thumbnail":"", "image1080":"", "imageFull":"", "aspectRatio":},
-    
-    ];
+    var imageData = JSON.parse('    [            {            "thumb": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/thumb/img000.webp",            "url": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg",            "aspectRatio": 2        },            {            "thumb": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/thumb/img001.webp",            "url": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img001.jpg",            "aspectRatio": 2        }        ]    ');
     var pig = new Pig(imageData, {
-    urlForSize: function(imageUrls, sizewidth) {
-    if (sizewidth <= 1080){
-        return imageUrls.thumbnail;
-    }
-    else if(sizewidth <= 1920){
-        return imageUrls.image1080;
-    }
-    return imageUrls.imageFull;
-    },
     addAnchorTag: true,
-    anchorTargetDir: "",
-    anchorClass: "swipebox"
+    anchorClass: "vp-photo-link"
     }).enable();
-    ;( function( $ ) {
-    $( '.swipebox' ).swipebox();
-    } )( jQuery );
+
+    // Fancybox initialization
+    setTimeout(function() {
+        var links = document.querySelectorAll('.vp-photo-link');
+        links.forEach(function(link) {
+            link.setAttribute('data-fancybox', 'gallery');
+            link.setAttribute('data-type', 'image');
+        });
+
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Toolbar: {
+                display: {
+                    left: [],
+                    middle: [],
+                    right: ["close"]
+                }
+            },
+            Images: {
+                zoom: true
+            },
+            Carousel: {
+                infinite: false,
+                Dots: false
+            }
+        });
+    }, 500);
 </script>
 </div>
   </div>
   </main>
-  <footer class="mt-auto py-3 text-center"><small class="text-muted mb-2">
-    Made with <i class="fas fa-heart"></i> and <strong><a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a></strong> theme
-  </small>
+  <footer class="mt-auto py-3 text-center">
 
   <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.twitter.com/shkegulka"
        style="color: #6c757d"
@@ -218,6 +268,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- Popper.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
