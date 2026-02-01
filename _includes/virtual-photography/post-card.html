@@ -26,11 +26,11 @@
 {%- endif -%}
 
 <style>
-<!-- Title shadow if needed at some point
+/* Title shadow if needed at some point
 	.card-img-overlay {
 		text-shadow: 0.1em 0.1em 0.3em black;
 		
-	} -->
+	} */
 	
 	.card:before {
 		content: "";
@@ -61,11 +61,33 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
+    .project.card {
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        aspect-ratio: 480 / 550;
+    }
 </style>
     
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-3 wow animated fadeIn" data-wow-delay=".15s">
   <a href="{{ post_url }}" class="project card text-themed" {%- if post.external_url and site.open_new_tab -%} target="_blank" {%- endif -%}>
-  <img loading="lazy" src="{{ site.data.virtual-photography[post.slug][post.card-image].image1080-link }}" alt="{{ include.album.title }}" class="card-img-top" style="object-position: 0 {{post.card-offset}}%;">
+  {%- assign album_data = site.data.virtual-photography[post.slug] -%}
+    {%- assign card_pic = album_data[post.card-image] -%}
+    {%- assign card_url = card_pic.url | default: card_pic.image1080-link -%}
+    {%- assign card_ar = card_pic.aspectRatio | default: 1.5 -%}
+    {%- assign card_offset = post.card-offset | default: 0 | plus: 0 -%}
+    {%- assign card_offset_x = post.card-offset-x | default: 0 | plus: 0 -%}
+    {%- assign card_zoom = post.card-zoom | default: 100 | plus: 0 -%}
+    {%- assign card_container_ar = 0.8727 -%}
+    {%- if card_ar > card_container_ar -%}
+        {%- assign card_bg_size = "auto " | append: card_zoom | append: "%" -%}
+    {%- else -%}
+        {%- assign card_bg_size = card_zoom | append: "% auto" -%}
+    {%- endif -%}
+    <div class="card-img-top" style="background-image: url('{{ card_url }}'); background-position: {{ card_offset_x }}% {{ 100 | minus: card_offset }}%; background-size: {{ card_bg_size }}; background-repeat: no-repeat; background-color: #202029;"></div>
     <div class="card-img-overlay">
       <h3 class="card-title"><strong>{{ post.title }}</strong></h3>
 

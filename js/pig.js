@@ -175,9 +175,8 @@
    *
    * @param {array} imageData - An array of metadata about each image to
    *                            include in the grid.
-   * @param {string} imageData[0].thumbnail - The filename of the thumbnail image.
-   * @param {string} imageData[0].image1080 - The filename of the 1080 image.
-   * @param {string} imageData[0].imageFull - The filename of the full image.
+   * @param {string} imageData[0].url - The URL of the full image.
+   * @param {string} imageData[0].thumb - The URL of the thumbnail image.
    * @param {string} imageData[0].aspectRatio - The aspect ratio of the image.
    * @param {object} options - An object containing overrides for the default
    *                           options. See below for the full list of options
@@ -278,29 +277,10 @@
       /**
        * Type: string
        * Default: ''
-       * Description: Which directory should anchor use to find images.
-       */
-      anchorTargetDir: '',
-
-      /**
-       * Type: string
-       * Default: ''
        * Description: When using an anchor around your image, here you can
        *   define a custom class.
        */
       anchorClass: '',
-
-      /**
-       * Get the URL for an image with the given filename & size.
-       *
-       * @param {string} filename - The filename of the image.
-       * @param {Number} size - The size (height in pixels) of the image.
-       *
-       * @returns {string} The URL of the image at the given size.
-       */
-      urlForSize: function(filename, size) {
-        return '/img/' + size + '/' + filename;
-      },
 
       /**
        * Get the minimum required aspect ratio for a valid row of images. The
@@ -331,26 +311,6 @@
           return 2;
         }
         return 2.5;
-      },
-      
-      //We are not using this for now, and instead handle the size directly on the given urlForSize
-      /**
-       * Get the image size (height in pixels) to use for this window width.
-       * Responsive resizing of images is achieved through changes to what this
-       * function returns at different values of the passed parameter
-       * `lastWindowWidth`.
-       *
-       * @param {Number} lastWindowWidth - The last computed width of the
-       *                                   browser window.
-       *
-       * @returns {Number} The size (height in pixels) of the images to load.
-       */
-      getImageSize: function(lastWindowWidth) {
-        if (lastWindowWidth <= 640)
-          return 100;
-        else if (lastWindowWidth <= 1920)
-          return 250;
-        return 500;
       }
     };
 
@@ -428,9 +388,8 @@
    *
    * @param {array} imageData - An array of metadata about each image to
    *                            include in the grid.
-   * @param {string} imageData[0].thumbnail - The thumbnail of the image.
-   * @param {string} imageData[0].image1080 - The filename of the full image.
-   * @param {string} imageData[0].imageFull - The filename of the full image.
+   * @param {string} imageData[0].url - The URL of the full image.
+   * @param {string} imageData[0].thumb - The URL of the thumbnail image.
    * @param {string} imageData[0].aspectRatio - The aspect ratio of the image.
    *
    * @returns {Array[ProgressiveImage]} - An array of ProgressiveImage
@@ -753,11 +712,10 @@
    *
    * @param {array} singleImageData - An array of metadata about each image to
    *                                  include in the grid.
-   * @param {string} singleImageData[0].thumbnail - The thumbnail of the image.
-   * @param {string} singleImageData[0].image1080 - The filename of the 1080 image.
-   * @param {string} singleImageData[0].imageFull - The filename of the full image.
-   * @param {string} singleImageData[0].aspectRatio - The aspect ratio of the
-   *                                                  image.
+   * @param {string} singleImageData.url - The URL of the full image.
+   * @param {string} singleImageData.thumb - The URL of the thumbnail image.
+   * @param {string} singleImageData.aspectRatio - The aspect ratio of the
+   *                                               image.
    */
   function ProgressiveImage(singleImageData, index, pig) {
 
@@ -765,10 +723,9 @@
     this.existsOnPage = false; // True if the element exists on the page.
 
     // Instance information
-    this.aspectRatio = singleImageData.aspectRatio;  // Aspect Ratio
-    this.thumbnail = singleImageData.thumbnail;  // Thumbnail
-    this.image1080 = singleImageData.image1080;  // 1080 image
-    this.imageFull = singleImageData.imageFull;  // Filename of the full image
+    this.aspectRatio = singleImageData.aspectRatio;
+    this.url = singleImageData.url;
+    this.thumb = singleImageData.thumb;
     this.index = index;  // The index in the list of images
 
     // The Pig instance
@@ -803,12 +760,6 @@
     // and we can exit.
     setTimeout(function() {
 
-      var imageUrls = {
-        thumbnail: this.thumbnail,
-        image1080: this.image1080,
-        imageFull: this.imageFull,
-      };
-
       // The image was hidden very quickly after being loaded, so don't bother
       // loading it at all.
       if (!this.existsOnPage) {
@@ -818,7 +769,7 @@
       // Show thumbnail
       if (!this.thumbnail) {
         this.thumbnail = new Image();
-        this.thumbnail.src = this.pig.settings.urlForSize(imageUrls, this.pig.settings.thumbnailSize);
+        this.thumbnail.src = this.thumb;
         this.thumbnail.className = this.classNames.thumbnail;
         this.thumbnail.onload = function() {
 
@@ -836,7 +787,7 @@
       // Show full image
       if (!this.fullImage) {
         this.fullImage = new Image();
-        this.fullImage.src = this.pig.settings.urlForSize(imageUrls, this.pig.lastWindowWidth);
+        this.fullImage.src = this.url;
         this.fullImage.onload = function() {
 
           // We have to make sure fullImage still exists, we may have already been
@@ -848,17 +799,11 @@
 
         // Add anchor around image
         if(this.pig.settings.addAnchorTag) {
-          var temp = this.fullImage.src.split('/');
-          var filename = temp[temp.length - 1];
           var anchor = document.createElement('a');
-          anchor.setAttribute('href', this.imageFull);
+          anchor.setAttribute('href', this.url);
           anchor.setAttribute('class', this.pig.settings.anchorClass);
           anchor.appendChild(this.fullImage);
           this.getElement().appendChild(anchor);
-
-          ;( function( $ ) {
-            $( '.swipebox' ).swipebox();
-          } )( jQuery );
         } else {
           this.getElement().appendChild(this.fullImage);
         }

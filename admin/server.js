@@ -156,11 +156,11 @@ function getAlbums() {
             const postContent = fs.readFileSync(postPath, 'utf8');
             
             // Parse front matter
-            const frontMatterMatch = postContent.match(/^---\n([\s\S]*?)\n---/);
+            const frontMatterMatch = postContent.match(/^---\r?\n([\s\S]*?)\r?\n---/);
             if (frontMatterMatch) {
                 const frontMatter = {};
-                frontMatterMatch[1].split('\n').forEach(line => {
-                    const match = line.match(/^(\w[\w-]*?):\s*(.*)$/);
+                frontMatterMatch[1].split(/\r?\n/).forEach(line => {
+                    const match = line.match(/^([\w-]*?):\s*(.*)$/);
                     if (match) {
                         let value = match[2].trim();
                         // Remove quotes if present
@@ -179,7 +179,15 @@ function getAlbums() {
                 // Read images
                 let images = [];
                 try {
-                    images = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+                    const rawImages = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+                    // Normalize image data to handle both old and new formats
+                    images = rawImages.map(img => ({
+                        url: img.url || img['imageFull-link'] || '',
+                        thumb: img.thumb || img['thumbnail-link'] || '',
+                        aspectRatio: parseFloat(img.aspectRatio || img['aspect-ratio'] || 1.5),
+                        width: img.width || 0,
+                        height: img.height || 0
+                    }));
                 } catch (e) {
                     console.error(`Error reading ${jsonFile}:`, e.message);
                 }
@@ -197,15 +205,18 @@ function getAlbums() {
                 albums.push({
                     slug: slug,
                     title: frontMatter.title || slug,
+                    description: frontMatter.description || 'Virtual Photography',
                     developer: frontMatter.developer || '',
                     date: frontMatter.date || '',
                     tags: tags,
                     cardImage: parseInt(frontMatter['card-image']) || 0,
                     cardOffset: parseInt(frontMatter['card-offset']) || 50,
                     cardOffsetX: parseInt(frontMatter['card-offset-x']) || 50,
+                    cardZoom: parseInt(frontMatter['card-zoom']) || 100,
                     bannerImage: parseInt(frontMatter['banner-image']) || 0,
                     bannerOffset: parseInt(frontMatter['banner-offset']) || 50,
                     bannerOffsetX: parseInt(frontMatter['banner-offset-x']) || 50,
+                    bannerZoom: parseInt(frontMatter['banner-zoom']) || 100,
                     images: images,
                     imageCount: images.length,
                     postFile: postFiles[0],
@@ -260,13 +271,14 @@ function generatePostMarkdown(data) {
     
     // Escape YAML special characters by quoting strings
     const title = data.title ? `"${data.title.replace(/"/g, '\\"')}"` : '""';
+    const description = data.description ? `"${data.description.replace(/"/g, '\\"')}"` : '"Virtual Photography"';
     const developer = data.developer ? `"${data.developer.replace(/"/g, '\\"')}"` : '""';
     
     return `---
 layout: post
 date: ${date}
 title: ${title}
-description: Virtual Photography
+description: ${description}
 developer: ${developer}
 categories: [virtual-photography]
 ${tagsLine}
@@ -274,9 +286,11 @@ slug: ${data.slug}
 card-image: ${data.cardImage || 0}
 card-offset: ${data.cardOffset || 50}
 card-offset-x: ${data.cardOffsetX || 50}
+card-zoom: ${data.cardZoom || 100}
 banner-image: ${data.bannerImage || 0}
 banner-offset: ${data.bannerOffset || 50}
 banner-offset-x: ${data.bannerOffsetX || 50}
+banner-zoom: ${data.bannerZoom || 100}
 ---`;
 }
 
@@ -300,7 +314,7 @@ app.get('/upload/new', (req, res) => {
 // Create album
 app.post('/upload/create', upload.array('images', 100), async (req, res) => {
     try {
-        const { title, developer, date } = req.body;
+        const { title, developer, description, date } = req.body;
         const slug = createSlug(title);
         const actualDate = date || new Date().toISOString().split('T')[0];
         
@@ -362,12 +376,17 @@ app.post('/upload/create', upload.array('images', 100), async (req, res) => {
         const postContent = generatePostMarkdown({
             title,
             developer,
+            description,
             date: actualDate,
             slug,
             cardImage: 0,
             cardOffset: 50,
+            cardOffsetX: 50,
+            cardZoom: 100,
             bannerImage: 0,
-            bannerOffset: 50
+            bannerOffset: 50,
+            bannerOffsetX: 50,
+            bannerZoom: 100
         });
         fs.writeFileSync(postPath, postContent);
         
@@ -400,7 +419,7 @@ app.post('/upload/update/:slug', (req, res) => {
             return res.status(404).json({ error: 'Album not found' });
         }
         
-        const { title, developer, date, tags, cardImage, cardOffset, cardOffsetX, bannerImage, bannerOffset, bannerOffsetX } = req.body;
+        const { title, description, developer, date, tags, cardImage, cardOffset, cardOffsetX, cardZoom, bannerImage, bannerOffset, bannerOffsetX, bannerZoom } = req.body;
         
         // Parse tags if provided as string
         let parsedTags = album.tags;
@@ -431,6 +450,7 @@ app.post('/upload/update/:slug', (req, res) => {
         // Generate new content
         const postContent = generatePostMarkdown({
             title: title || album.title,
+            description: description !== undefined ? description : album.description,
             developer: developer !== undefined ? developer : album.developer,
             date: newDate,
             tags: parsedTags,
@@ -438,9 +458,11 @@ app.post('/upload/update/:slug', (req, res) => {
             cardImage: cardImage !== undefined ? parseInt(cardImage) : album.cardImage,
             cardOffset: cardOffset !== undefined ? parseInt(cardOffset) : album.cardOffset,
             cardOffsetX: cardOffsetX !== undefined ? parseInt(cardOffsetX) : album.cardOffsetX,
+            cardZoom: cardZoom !== undefined ? parseInt(cardZoom) : album.cardZoom,
             bannerImage: bannerImage !== undefined ? parseInt(bannerImage) : album.bannerImage,
             bannerOffset: bannerOffset !== undefined ? parseInt(bannerOffset) : album.bannerOffset,
-            bannerOffsetX: bannerOffsetX !== undefined ? parseInt(bannerOffsetX) : album.bannerOffsetX
+            bannerOffsetX: bannerOffsetX !== undefined ? parseInt(bannerOffsetX) : album.bannerOffsetX,
+            bannerZoom: bannerZoom !== undefined ? parseInt(bannerZoom) : album.bannerZoom
         });
         
         fs.writeFileSync(newPostPath, postContent);

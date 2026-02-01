@@ -10,3 +10,6 @@ Gemfile.lock
 
 # Log Files
 *.log
+
+# Node.js
+node_modules/
