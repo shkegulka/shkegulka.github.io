@@ -99,3 +99,5 @@ exclude:
   - CONTRIBUTING.md
   - LICENSE
   - "*.log"
+  - admin/
+  - .b2-config.json

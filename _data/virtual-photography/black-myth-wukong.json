@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img000.jpg",
+    "thumb": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/thumb/img000.webp",
+    "aspectRatio": 2,
+    "width": 2880,
+    "height": 1440
+  },
+  {
+    "url": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/img001.jpg",
+    "thumb": "https://f003.backblazeb2.com/file/vp-bucket/black-myth-wukong/thumb/img001.webp",
+    "aspectRatio": 2,
+    "width": 2880,
+    "height": 1440
+  }
+]

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Album - VP Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #313244;
+            --bg-tertiary: #45475a;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --danger: #f38ba8;
+            --success: #a6e3a1;
+            --warning: #f9e2af;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: var(--bg-secondary) !important;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+        
+        .navbar-brand {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+        
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+        }
+        
+        .form-control, .form-select {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background-color: var(--bg-tertiary);
+            border-color: var(--accent);
+            color: var(--text-primary);
+            box-shadow: 0 0 0 0.25rem rgba(137, 180, 250, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .form-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:disabled {
+            background-color: var(--bg-tertiary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .dropzone {
+            border: 2px dashed var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dropzone:hover, .dropzone.dragover {
+            border-color: var(--accent);
+            background-color: rgba(137, 180, 250, 0.1);
+        }
+        
+        .dropzone i {
+            font-size: 3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .dropzone.dragover i {
+            color: var(--accent);
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg-tertiary);
+        }
+        
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .preview-item .remove-btn {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .preview-item:hover .remove-btn {
+            opacity: 1;
+        }
+        
+        .preview-item .index-badge {
+            position: absolute;
+            bottom: 4px;
+            left: 4px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        
+        .progress-container {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .progress {
+            height: 8px;
+            background-color: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+        
+        .progress-bar {
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .upload-status {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .alert-success {
+            background-color: rgba(166, 227, 161, 0.2);
+            border-color: var(--success);
+            color: var(--success);
+        }
+        
+        .alert-danger {
+            background-color: rgba(243, 139, 168, 0.2);
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/upload">
+                <i class="bi bi-camera-fill me-2"></i>VP Admin
+            </a>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <a href="/upload" class="btn btn-secondary me-3">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                    <h2 class="mb-0">Create New Album</h2>
+                </div>
+
+                <div id="alertContainer"></div>
+
+                <form id="createForm" enctype="multipart/form-data">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Album Details</h5>
+                            
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Game Title *</label>
+                                <input type="text" class="form-control" id="title" name="title" required 
+                                       placeholder="e.g., Alan Wake 2">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="developer" class="form-label">Developer</label>
+                                <input type="text" class="form-control" id="developer" name="developer"
+                                       placeholder="e.g., Remedy Entertainment">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" name="date"
+                                       value="<%= new Date().toISOString().split('T')[0] %>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Photos</h5>
+                            
+                            <div class="dropzone" id="dropzone">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <h5>Drop images here</h5>
+                                <p class="text-secondary mb-0">or click to select files</p>
+                                <p class="text-secondary"><small>Supports JPG, PNG, WebP (max 50MB each)</small></p>
+                            </div>
+                            
+                            <input type="file" id="fileInput" name="images" multiple accept="image/jpeg,image/png,image/webp" style="display: none;">
+                            
+                            <div class="preview-grid" id="previewGrid"></div>
+                            
+                            <div class="progress-container" id="progressContainer">
+                                <div class="progress">
+                                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                                </div>
+                                <div class="upload-status" id="uploadStatus">Preparing upload...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/upload" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary flex-grow-1" id="submitBtn" disabled>
+                            <i class="bi bi-cloud-arrow-up me-2"></i>Create Album
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const previewGrid = document.getElementById('previewGrid');
+        const createForm = document.getElementById('createForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const alertContainer = document.getElementById('alertContainer');
+        
+        let selectedFiles = [];
+
+        // Dropzone events
+        dropzone.addEventListener('click', () => fileInput.click());
+        
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+        
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('dragover');
+        });
+        
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            for (const file of files) {
+                if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+                    showAlert('danger', `Invalid file type: ${file.name}`);
+                    continue;
+                }
+                if (file.size > 50 * 1024 * 1024) {
+                    showAlert('danger', `File too large: ${file.name}`);
+                    continue;
+                }
+                selectedFiles.push(file);
+            }
+            updatePreview();
+            updateSubmitButton();
+        }
+
+        function updatePreview() {
+            previewGrid.innerHTML = '';
+            selectedFiles.forEach((file, index) => {
+                const div = document.createElement('div');
+                div.className = 'preview-item';
+                
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-btn';
+                removeBtn.innerHTML = '<i class="bi bi-x"></i>';
+                removeBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    selectedFiles.splice(index, 1);
+                    updatePreview();
+                    updateSubmitButton();
+                };
+                
+                const indexBadge = document.createElement('span');
+                indexBadge.className = 'index-badge';
+                indexBadge.textContent = `#${index}`;
+                
+                div.appendChild(img);
+                div.appendChild(removeBtn);
+                div.appendChild(indexBadge);
+                previewGrid.appendChild(div);
+            });
+        }
+
+        function updateSubmitButton() {
+            const title = document.getElementById('title').value.trim();
+            submitBtn.disabled = !title || selectedFiles.length === 0;
+        }
+
+        document.getElementById('title').addEventListener('input', updateSubmitButton);
+
+        function showAlert(type, message) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000);
+        }
+
+        createForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const title = document.getElementById('title').value.trim();
+            const developer = document.getElementById('developer').value.trim();
+            const date = document.getElementById('date').value;
+            
+            if (!title || selectedFiles.length === 0) return;
+            
+            // Disable form
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating...';
+            progressContainer.style.display = 'block';
+            
+            // Create FormData
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('developer', developer);
+            formData.append('date', date);
+            
+            selectedFiles.forEach(file => {
+                formData.append('images', file);
+            });
+            
+            try {
+                uploadStatus.textContent = `Uploading ${selectedFiles.length} images...`;
+                
+                const response = await fetch('/upload/create', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    progressBar.style.width = '100%';
+                    uploadStatus.textContent = 'Album created successfully!';
+                    showAlert('success', data.message);
+                    
+                    // Redirect after short delay
+                    setTimeout(() => {
+                        window.location.href = `/upload/edit/${data.slug}`;
+                    }, 1500);
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (err) {
+                showAlert('danger', 'Error creating album: ' + err.message);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-cloud-arrow-up me-2"></i>Create Album';
+                progressContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

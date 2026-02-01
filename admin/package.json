@@ -1,0 +1,18 @@
+{
+  "name": "nairdah-admin",
+  "version": "1.0.0",
+  "description": "Admin panel for managing virtual photography albums",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "backblaze-b2": "^1.7.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.2",
+    "slugify": "^1.6.6"
+  }
+}

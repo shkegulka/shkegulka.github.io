@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Order - VP Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #313244;
+            --bg-tertiary: #45475a;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --danger: #f38ba8;
+            --success: #a6e3a1;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: var(--bg-secondary) !important;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+        
+        .navbar-brand {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: var(--bg-primary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .album-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .album-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .album-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .album-item.sortable-chosen {
+            opacity: 0.9;
+            cursor: grabbing;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .album-item.sortable-ghost {
+            opacity: 0.4;
+        }
+        
+        .album-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: var(--bg-tertiary);
+        }
+        
+        .album-info {
+            flex: 1;
+        }
+        
+        .album-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .album-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .drag-handle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            cursor: grab;
+            padding: 0.5rem;
+        }
+        
+        .drag-handle:hover {
+            color: var(--accent);
+        }
+        
+        .order-number {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .alert-success {
+            background-color: rgba(166, 227, 161, 0.2);
+            border-color: var(--success);
+            color: var(--success);
+        }
+        
+        .alert-danger {
+            background-color: rgba(243, 139, 168, 0.2);
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+        
+        .save-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--bg-tertiary);
+            padding: 1rem;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .save-bar.show {
+            display: block;
+        }
+        
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/upload">
+                <i class="bi bi-camera-fill me-2"></i>VP Admin
+            </a>
+        </div>
+    </nav>
+
+    <div class="container pb-5" style="padding-bottom: 100px !important;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div class="d-flex align-items-center">
+                <a href="/upload" class="btn btn-secondary me-3">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <div>
+                    <h2 class="mb-0">Album Order</h2>
+                    <p class="info-text mb-0">Drag and drop to reorder albums on the site</p>
+                </div>
+            </div>
+            <button class="btn btn-secondary" id="autoSortBtn">
+                <i class="bi bi-sort-down me-1"></i> Auto-sort by date
+            </button>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <ul class="album-list" id="albumList">
+            <% albums.forEach(function(album, index) { %>
+                <li class="album-item" data-slug="<%= album.slug %>" data-date="<%= album.date %>">
+                    <span class="order-number"><%= index + 1 %></span>
+                    <i class="bi bi-grip-vertical drag-handle"></i>
+                    <% if (album.images.length > 0) { %>
+                        <img src="<%= album.images[album.cardImage]?.thumb || album.images[0]?.thumb %>" 
+                             class="album-thumb" 
+                             alt="<%= album.title %>">
+                    <% } else { %>
+                        <div class="album-thumb d-flex align-items-center justify-content-center">
+                            <i class="bi bi-image text-secondary"></i>
+                        </div>
+                    <% } %>
+                    <div class="album-info">
+                        <div class="album-title"><%= album.title %></div>
+                        <div class="album-meta">
+                            <% if (album.developer) { %><%= album.developer %> · <% } %>
+                            <%= album.imageCount %> photos · <%= album.date %>
+                        </div>
+                    </div>
+                    <a href="/upload/edit/<%= album.slug %>" class="btn btn-secondary btn-sm">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div class="save-bar" id="saveBar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="text-secondary">You have unsaved changes</span>
+            <button class="btn btn-primary" id="saveBtn">
+                <i class="bi bi-check-lg me-1"></i> Save Order
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script>
+        const albumList = document.getElementById('albumList');
+        const saveBar = document.getElementById('saveBar');
+        const saveBtn = document.getElementById('saveBtn');
+        const alertContainer = document.getElementById('alertContainer');
+        
+        let hasChanges = false;
+        let originalOrder = getOrder();
+
+        // Initialize Sortable
+        const sortable = new Sortable(albumList, {
+            animation: 150,
+            handle: '.drag-handle',
+            ghostClass: 'sortable-ghost',
+            chosenClass: 'sortable-chosen',
+            onEnd: function(evt) {
+                updateOrderNumbers();
+                checkForChanges();
+            }
+        });
+
+        function getOrder() {
+            const items = albumList.querySelectorAll('.album-item');
+            return Array.from(items).map(item => item.dataset.slug);
+        }
+
+        function updateOrderNumbers() {
+            const items = albumList.querySelectorAll('.album-item');
+            items.forEach((item, index) => {
+                item.querySelector('.order-number').textContent = index + 1;
+            });
+        }
+
+        function checkForChanges() {
+            const currentOrder = getOrder();
+            hasChanges = JSON.stringify(currentOrder) !== JSON.stringify(originalOrder);
+            saveBar.classList.toggle('show', hasChanges);
+        }
+
+        function showAlert(type, message) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000);
+        }
+
+        saveBtn.addEventListener('click', async function() {
+            const order = getOrder();
+            
+            this.disabled = true;
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Saving...';
+            
+            try {
+                const response = await fetch('/upload/save-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ order })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('success', 'Album order saved!');
+                    originalOrder = order;
+                    hasChanges = false;
+                    saveBar.classList.remove('show');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (err) {
+                showAlert('danger', 'Error: ' + err.message);
+            }
+            
+            this.disabled = false;
+            this.innerHTML = '<i class="bi bi-check-lg me-1"></i> Save Order';
+        });
+
+        // Auto-sort by date (newest first)
+        document.getElementById('autoSortBtn').addEventListener('click', function() {
+            const items = Array.from(albumList.querySelectorAll('.album-item'));
+            
+            // Sort by date descending (newest first)
+            items.sort((a, b) => {
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+                return dateB - dateA;
+            });
+            
+            // Reorder DOM
+            items.forEach(item => albumList.appendChild(item));
+            
+            // Update numbers and check for changes
+            updateOrderNumbers();
+            checkForChanges();
+            
+            showAlert('success', 'Albums sorted by date (newest first). Click "Save Order" to apply.');
+        });
+
+        // Warn before leaving with unsaved changes
+        window.addEventListener('beforeunload', function(e) {
+            if (hasChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>

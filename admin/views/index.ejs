@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Photography Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #313244;
+            --bg-tertiary: #45475a;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --danger: #f38ba8;
+            --success: #a6e3a1;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: var(--bg-secondary) !important;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+        
+        .navbar-brand {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+        
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            background-color: var(--bg-tertiary);
+        }
+        
+        .card-body {
+            padding: 1.25rem;
+        }
+        
+        .card-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: var(--bg-primary);
+        }
+        
+        .btn-outline-primary {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-outline-danger {
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+        
+        .btn-outline-danger:hover {
+            background-color: var(--danger);
+            color: var(--bg-primary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .badge {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--bg-tertiary);
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state h3 {
+            color: var(--text-secondary);
+        }
+        
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .stats-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/upload">
+                <i class="bi bi-camera-fill me-2"></i>VP Admin
+            </a>
+            <div class="d-flex gap-2">
+                <a href="/upload/order" class="btn btn-secondary">
+                    <i class="bi bi-sort-down me-1"></i> Reorder
+                </a>
+                <a href="/upload/new" class="btn btn-primary">
+                    <i class="bi bi-plus-lg me-1"></i> New Album
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Albums</h2>
+            <span class="badge fs-6"><%= albums.length %> albums</span>
+        </div>
+
+        <% if (albums.length === 0) { %>
+            <div class="empty-state">
+                <i class="bi bi-images"></i>
+                <h3>No albums yet</h3>
+                <p class="text-secondary mb-4">Create your first virtual photography album</p>
+                <a href="/upload/new" class="btn btn-primary btn-lg">
+                    <i class="bi bi-plus-lg me-2"></i>Create Album
+                </a>
+            </div>
+        <% } else { %>
+            <div class="album-grid">
+                <% albums.forEach(function(album) { %>
+                    <div class="card">
+                        <% if (album.images.length > 0) { %>
+                            <img src="<%= album.images[album.cardImage]?.thumb || album.images[0]?.thumb %>" 
+                                 class="card-img-top" 
+                                 alt="<%= album.title %>"
+                                 loading="lazy">
+                        <% } else { %>
+                            <div class="card-img-top d-flex align-items-center justify-content-center">
+                                <i class="bi bi-image text-secondary" style="font-size: 3rem;"></i>
+                            </div>
+                        <% } %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= album.title %></h5>
+                            <p class="card-text mb-2">
+                                <% if (album.developer) { %>
+                                    <%= album.developer %>
+                                <% } %>
+                            </p>
+                            <div class="stats mb-3">
+                                <span class="stats-item">
+                                    <i class="bi bi-images"></i> <%= album.imageCount %> photos
+                                </span>
+                                <span class="stats-item">
+                                    <i class="bi bi-calendar3"></i> <%= album.date %>
+                                </span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="/upload/edit/<%= album.slug %>" class="btn btn-outline-primary btn-sm flex-grow-1">
+                                    <i class="bi bi-pencil me-1"></i> Edit
+                                </a>
+                                <button class="btn btn-outline-danger btn-sm" onclick="deleteAlbum('<%= album.slug %>', '<%= album.title %>')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: var(--bg-secondary); color: var(--text-primary);">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">Delete Album</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete "<span id="deleteAlbumName"></span>"?</p>
+                    <p class="text-danger"><small>This will permanently delete all images from Backblaze B2.</small></p>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let albumToDelete = null;
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+
+        function deleteAlbum(slug, title) {
+            albumToDelete = slug;
+            document.getElementById('deleteAlbumName').textContent = title;
+            deleteModal.show();
+        }
+
+        document.getElementById('confirmDelete').addEventListener('click', async function() {
+            if (!albumToDelete) return;
+            
+            this.disabled = true;
+            this.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Deleting...';
+            
+            try {
+                const response = await fetch(`/upload/delete/${albumToDelete}`, { method: 'POST' });
+                const data = await response.json();
+                
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + data.error);
+                    this.disabled = false;
+                    this.innerHTML = 'Delete';
+                }
+            } catch (err) {
+                alert('Error deleting album');
+                this.disabled = false;
+                this.innerHTML = 'Delete';
+            }
+        });
+    </script>
+</body>
+</html>
