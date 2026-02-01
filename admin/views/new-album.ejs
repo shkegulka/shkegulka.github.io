@@ -242,6 +242,12 @@
                                 <input type="text" class="form-control" id="developer" name="developer"
                                        placeholder="e.g., Remedy Entertainment">
                             </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"
+                                          placeholder="A brief description for social media embeds..."></textarea>
+                            </div>
                             
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
@@ -391,6 +397,7 @@
             
             const title = document.getElementById('title').value.trim();
             const developer = document.getElementById('developer').value.trim();
+            const description = document.getElementById('description').value.trim();
             const date = document.getElementById('date').value;
             
             if (!title || selectedFiles.length === 0) return;
@@ -404,6 +411,7 @@
             const formData = new FormData();
             formData.append('title', title);
             formData.append('developer', developer);
+            formData.append('description', description);
             formData.append('date', date);
             
             selectedFiles.forEach(file => {

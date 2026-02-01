@@ -40,18 +40,32 @@ layout: page
     }
 
     .banner {
-    background-size: cover;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
     }
 
     .banner-text {
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.3em black;
+    position: relative;
+    z-index: 2;
     }
 
     @media (max-width: 767px) {
@@ -78,7 +92,15 @@ layout: page
 <div class="vp">
 	{% assign banner_offset = page.banner-offset | default: 0 | plus: 0 %}
 	{% assign banner_offset_x = page.banner-offset-x | default: 50 | plus: 0 %}
-	<div class="banner" style="background-image: url('{{ banner_url }}'); background-position: {{ banner_offset_x }}% {{ 100 | minus: banner_offset }}%; background-size: cover; background-repeat: no-repeat;">
+	{% assign banner_zoom = page.banner-zoom | default: 100 | plus: 0 %}
+	{% assign banner_container_ar = 5.06 %}
+	{% if ar > banner_container_ar %}
+		{% assign banner_bg_size = "auto " | append: banner_zoom | append: "%" %}
+	{% else %}
+		{% assign banner_bg_size = banner_zoom | append: "% auto" %}
+	{% endif %}
+	<div class="banner">
+		<div class="banner-bg" style="background-image: url('{{ banner_url }}'); background-position: {{ banner_offset_x }}% {{ 100 | minus: banner_offset }}%; background-size: {{ banner_bg_size }};"></div>
 		<div class="banner-text">
 			<h1><strong>{{ page.title }}</strong></h1>
 			<p><span class="date"><time datetime="{{ page.date | date_to_xmlschema }}"><strong>{{ page.date | date_to_string}}</strong></time><strong>{% if page.developer %} | {{page.developer}} {% endif %}</strong></span> </p>

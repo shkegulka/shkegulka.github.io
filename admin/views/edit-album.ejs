@@ -309,6 +309,7 @@
             background-position: center;
             border-radius: 8px;
             flex-shrink: 0;
+            overflow: hidden;
         }
         
         .card-preview-banner {
@@ -318,6 +319,7 @@
             background-position: center;
             border-radius: 8px;
             position: relative;
+            overflow: hidden;
         }
         
         .card-preview-banner::before {
@@ -339,6 +341,7 @@
             border-radius: 8px;
             position: relative;
             background-color: var(--bg-tertiary);
+            overflow: hidden;
         }
         
         .banner-preview::before {
@@ -352,6 +355,14 @@
             border-radius: 8px;
         }
         
+        .preview-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.1s ease-out;
+        }
+
         .preview-type-label {
             font-size: 0.65rem;
             color: var(--text-secondary);
@@ -458,6 +469,11 @@
                                 <label for="developer" class="form-label">Developer</label>
                                 <input type="text" class="form-control" id="developer" value="<%= album.developer %>">
                             </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" rows="3"><%= album.description %></textarea>
+                            </div>
                             
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
@@ -485,16 +501,22 @@
                             <div class="preview-container">
                                 <div>
                                     <div class="preview-type-label">Card (480x550)</div>
-                                    <div class="card-preview-main" id="cardPreviewMain" 
-                                         style="background-image: url('<%= album.images[album.cardImage]?.thumb || '' %>');
-                                                background-position: <%= album.cardOffsetX %>% <%= 100 - (album.cardOffset || 0) %>%;">
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="preview-type-label">Banner (1518x300)</div>
-                                    <div class="card-preview-banner" id="cardPreviewBanner"
-                                         style="background-image: url('<%= album.images[album.cardImage]?.thumb || '' %>');
-                                                background-position: <%= album.cardOffsetX %>% <%= 100 - (album.cardOffset || 0) %>%;">
+                                    <div class="card-preview-main" id="cardPreviewMain">
+                                        <% 
+                                            const cardImg = album.images[album.cardImage];
+                                            const cardContainerAR = 480 / 550;
+                                            const cardImageAR = cardImg ? cardImg.aspectRatio : 1;
+                                            const cardZoomVal = album.cardZoom || 100;
+                                            let cardBgSize = 'cover';
+                                            if (cardImg) {
+                                                cardBgSize = cardImageAR > cardContainerAR ? `auto ${cardZoomVal}%` : `${cardZoomVal}% auto`;
+                                            }
+                                        %>
+                                        <div class="preview-bg" id="cardPreviewMainBg"
+                                             style="background-image: url('<%= cardImg?.thumb || '' %>');
+                                                    background-position: <%= album.cardOffsetX %>% <%= 100 - (album.cardOffset || 0) %>%;
+                                                    background-size: <%= cardBgSize %>;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -506,13 +528,30 @@
                                 <label class="form-label small">Vertical Position</label>
                                 <input type="range" class="form-range" id="cardOffset" min="0" max="100" value="<%= album.cardOffset %>">
                             </div>
+                            <div class="mt-2">
+                                <label class="form-label small">Zoom</label>
+                                <input type="range" class="form-range" id="cardZoom" min="100" max="200" value="<%= album.cardZoom || 100 %>">
+                            </div>
                         </div>
                         
                         <div class="preview-section">
                             <div class="preview-label">Banner Preview (Image #<span id="bannerImageNum"><%= album.bannerImage %></span>)</div>
-                            <div class="banner-preview" id="bannerPreview" 
-                                 style="background-image: url('<%= album.images[album.bannerImage]?.url || '' %>');
-                                        background-position: <%= album.bannerOffsetX || 50 %>% <%= 100 - (album.bannerOffset || 0) %>%;">
+                            <div class="banner-preview" id="bannerPreview">
+                                <% 
+                                    const bannerImg = album.images[album.bannerImage];
+                                    const bannerContainerAR = 1518 / 300;
+                                    const bannerImageAR = bannerImg ? bannerImg.aspectRatio : 1;
+                                    const bannerZoomVal = album.bannerZoom || 100;
+                                    let bannerBgSize = 'cover';
+                                    if (bannerImg) {
+                                        bannerBgSize = bannerImageAR > bannerContainerAR ? `auto ${bannerZoomVal}%` : `${bannerZoomVal}% auto`;
+                                    }
+                                %>
+                                <div class="preview-bg" id="bannerPreviewBg"
+                                     style="background-image: url('<%= bannerImg?.url || '' %>');
+                                            background-position: <%= album.bannerOffsetX || 50 %>% <%= 100 - (album.bannerOffset || 0) %>%;
+                                            background-size: <%= bannerBgSize %>;">
+                                </div>
                             </div>
                             <div class="mt-2">
                                 <label class="form-label small">Horizontal Position</label>
@@ -522,8 +561,13 @@
                                 <label class="form-label small">Vertical Position</label>
                                 <input type="range" class="form-range" id="bannerOffset" min="0" max="100" value="<%= album.bannerOffset %>">
                             </div>
+                            <div class="mt-2">
+                                <label class="form-label small">Zoom</label>
+                                <input type="range" class="form-range" id="bannerZoom" min="100" max="200" value="<%= album.bannerZoom || 100 %>">
+                            </div>
                         </div>
                         
+                        <div id="previewAlertContainer"></div>
                         <button id="savePreviewBtn" class="btn btn-primary w-100">
                             <i class="bi bi-check-lg me-1"></i> Save Card & Banner
                         </button>
@@ -710,15 +754,17 @@
             }
         }
 
-        function showAlert(type, message) {
+        function showAlert(type, message, container = alertContainer) {
             const alert = document.createElement('div');
             alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.style.fontSize = '0.85rem';
+            alert.style.padding = '0.5rem 1rem';
             alert.innerHTML = `
                 ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" style="padding: 0.6rem;"></button>
             `;
-            alertContainer.appendChild(alert);
-            setTimeout(() => alert.remove(), 5000);
+            container.appendChild(alert);
+            setTimeout(() => alert.remove(), 3000);
         }
 
         async function saveOrder() {
@@ -792,11 +838,12 @@
             
             if (images[cardImage]) {
                 const cardUrl = `url('${images[cardImage].thumb}')`;
-                document.getElementById('cardPreviewMain').style.backgroundImage = cardUrl;
-                document.getElementById('cardPreviewBanner').style.backgroundImage = cardUrl;
+                document.getElementById('cardPreviewMainBg').style.backgroundImage = cardUrl;
+                updateCardPosition();
             }
             if (images[bannerImage]) {
-                document.getElementById('bannerPreview').style.backgroundImage = `url('${images[bannerImage].url}')`;
+                document.getElementById('bannerPreviewBg').style.backgroundImage = `url('${images[bannerImage].url}')`;
+                updateBannerPosition();
             }
         }
 
@@ -804,31 +851,70 @@
         function updateCardPosition() {
             const x = document.getElementById('cardOffsetX').value;
             const y = document.getElementById('cardOffset').value;
+            const zoom = document.getElementById('cardZoom').value / 100;
+            const bg = document.getElementById('cardPreviewMainBg');
+            
+            const img = images[cardImage];
+            if (img) {
+                const containerAR = 480 / 550;
+                const imageAR = img.aspectRatio;
+                
+                if (imageAR > containerAR) {
+                    // Image is wider than container, height is the limiting dimension
+                    bg.style.backgroundSize = `auto ${zoom * 100}%`;
+                } else {
+                    // Image is taller than container, width is the limiting dimension
+                    bg.style.backgroundSize = `${zoom * 100}% auto`;
+                }
+            } else {
+                bg.style.backgroundSize = 'cover';
+            }
+
             // 100 - y to match the site's logic where 0 is bottom
-            document.getElementById('cardPreviewMain').style.backgroundPosition = `${x}% ${100 - y}%`;
-            document.getElementById('cardPreviewBanner').style.backgroundPosition = `${x}% ${100 - y}%`;
+            bg.style.backgroundPosition = `${x}% ${100 - y}%`;
         }
         
         document.getElementById('cardOffset').addEventListener('input', updateCardPosition);
         document.getElementById('cardOffsetX').addEventListener('input', updateCardPosition);
+        document.getElementById('cardZoom').addEventListener('input', updateCardPosition);
 
         // Banner offset sliders
         function updateBannerPosition() {
             const x = document.getElementById('bannerOffsetX').value;
             const y = document.getElementById('bannerOffset').value;
+            const zoom = document.getElementById('bannerZoom').value / 100;
+            const bg = document.getElementById('bannerPreviewBg');
+            
+            const img = images[bannerImage];
+            if (img) {
+                const containerAR = 1518 / 300;
+                const imageAR = img.aspectRatio;
+                
+                if (imageAR > containerAR) {
+                    bg.style.backgroundSize = `auto ${zoom * 100}%`;
+                } else {
+                    bg.style.backgroundSize = `${zoom * 100}% auto`;
+                }
+            } else {
+                bg.style.backgroundSize = 'cover';
+            }
+
             // 100 - y because on the site we use 'bottom y%'
-            document.getElementById('bannerPreview').style.backgroundPosition = `${x}% ${100 - y}%`;
+            bg.style.backgroundPosition = `${x}% ${100 - y}%`;
         }
         
         document.getElementById('bannerOffset').addEventListener('input', updateBannerPosition);
         document.getElementById('bannerOffsetX').addEventListener('input', updateBannerPosition);
+        document.getElementById('bannerZoom').addEventListener('input', updateBannerPosition);
 
         // Save preview settings
         document.getElementById('savePreviewBtn').addEventListener('click', async function() {
             const cardOffset = document.getElementById('cardOffset').value;
             const cardOffsetX = document.getElementById('cardOffsetX').value;
+            const cardZoom = document.getElementById('cardZoom').value;
             const bannerOffset = document.getElementById('bannerOffset').value;
             const bannerOffsetX = document.getElementById('bannerOffsetX').value;
+            const bannerZoom = document.getElementById('bannerZoom').value;
             
             this.disabled = true;
             this.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Saving...';
@@ -841,20 +927,22 @@
                         cardImage,
                         cardOffset: parseInt(cardOffset),
                         cardOffsetX: parseInt(cardOffsetX),
+                        cardZoom: parseInt(cardZoom),
                         bannerImage,
                         bannerOffset: parseInt(bannerOffset),
-                        bannerOffsetX: parseInt(bannerOffsetX)
+                        bannerOffsetX: parseInt(bannerOffsetX),
+                        bannerZoom: parseInt(bannerZoom)
                     })
                 });
                 
                 const data = await response.json();
                 if (data.success) {
-                    showAlert('success', 'Card & Banner settings saved!');
+                    showAlert('success', 'Card & Banner settings saved!', document.getElementById('previewAlertContainer'));
                 } else {
                     throw new Error(data.error);
                 }
             } catch (err) {
-                showAlert('danger', 'Error: ' + err.message);
+                showAlert('danger', 'Error: ' + err.message, document.getElementById('previewAlertContainer'));
             }
             
             this.disabled = false;
@@ -867,6 +955,7 @@
             
             const title = document.getElementById('title').value;
             const developer = document.getElementById('developer').value;
+            const description = document.getElementById('description').value;
             const date = document.getElementById('date').value;
             const tags = document.getElementById('tags').value;
             
@@ -878,7 +967,7 @@
                 const response = await fetch(`/upload/update/${albumSlug}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ title, developer, date, tags })
+                    body: JSON.stringify({ title, developer, description, date, tags })
                 });
                 
                 const data = await response.json();
